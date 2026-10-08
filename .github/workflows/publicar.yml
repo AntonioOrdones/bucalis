@@ -37,6 +37,16 @@ jobs:
       - name: Verificar qualidade
         run: npm run lint && npm test
 
+      - name: Configurar Python para os recursos visuais
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Gerar logotipo, favicons e imagem de compartilhamento
+        run: |
+          python -m pip install --disable-pip-version-check Pillow==11.3.0
+          python scripts/gerar-identidade.py
+
       - name: Compilar e pre-renderizar
         run: npm run build
         env:
@@ -49,6 +59,10 @@ jobs:
           test -s dist/index.html
           test -s dist/404.html
           test -d dist/assets
+          test -s dist/og-bucalis-2026.png
+          test -s dist/favicon-bucalis.svg
+          test -s dist/icons/favicon-bucalis-32.png
+          grep -q '/bucalis/og-bucalis-2026.png' dist/index.html
           if grep -q 'src/entry-client.jsx' dist/index.html; then
             echo 'index.html ainda referencia codigo React nao compilado'
             exit 1
@@ -66,14 +80,14 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           publicados=(
-            index.html 404.html .nojekyll assets icons favicon.svg og-image.jpg
+            index.html 404.html .nojekyll assets icons favicon.svg favicon-bucalis.svg og-image.jpg og-bucalis-2026.png
             sitemap.xml robots.txt site.webmanifest
             acessibilidade clinica contato convenios privacidade termos tratamentos
           )
           git rm -r -f --ignore-unmatch -- "${publicados[@]}"
           cp -a dist/. ./
           touch .nojekyll
-          git add -A -- "${publicados[@]}"
+          git add -A -- "${publicados[@]}" public/favicon.svg public/favicon-bucalis.svg public/icons public/og-image.jpg public/og-bucalis-2026.png
 
           if git diff --cached --quiet; then
             echo "O site estatico da main ja esta atualizado."

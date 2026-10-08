@@ -162,7 +162,7 @@ export const clinica = {
 
   /* ── Endereço público do site ───────────────────────────────────────── */
   // Usado só em builds locais. No GitHub Actions a URL é detectada sozinha.
-  urlPadrao: 'https://antonioordones.github.io/site2',
+  urlPadrao: 'https://antonioordones.github.io/bucalis',
 };
 
 /** Anos de experiência calculados a partir do ano de fundação. */

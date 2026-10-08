@@ -28,7 +28,7 @@ export function renderizarHead(meta = {}) {
   const titulo = escaparHtml(tituloCompleto(meta));
   const descricao = escaparHtml(meta.descricao || clinica.descricao);
   const canonical = urlAbsoluta(meta.caminho || '/');
-  const imagem = urlAbsoluta(meta.imagem || '/og-image.jpg');
+  const imagem = urlAbsoluta(meta.imagem || '/og-bucalis-2026.png');
   const tags = [
     `<title>${titulo}</title>`,
     `<meta name="description" content="${descricao}">`,
@@ -43,14 +43,17 @@ export function renderizarHead(meta = {}) {
     `<meta property="og:description" content="${descricao}">`,
     `<meta property="og:url" content="${canonical}">`,
     `<meta property="og:image" content="${imagem}">`,
+    `<meta property="og:image:secure_url" content="${imagem}">`,
+    '<meta property="og:image:type" content="image/png">',
     '<meta property="og:image:width" content="1200">',
     '<meta property="og:image:height" content="630">',
     `<meta property="og:image:alt" content="${escaparHtml(clinica.nome)}">`,
     '<meta name="twitter:card" content="summary_large_image">',
-    '<meta name="theme-color" content="#2b140a">',
-    `<link rel="icon" href="${asset('/favicon.svg')}" type="image/svg+xml">`,
-    `<link rel="icon" href="${asset('/icons/favicon-32.png')}" sizes="32x32" type="image/png">`,
-    `<link rel="apple-touch-icon" href="${asset('/icons/apple-touch-icon.png')}">`,
+    `<meta name="twitter:image" content="${imagem}">`,
+    '<meta name="theme-color" content="#301710">',
+    `<link rel="icon" href="${asset('/favicon-bucalis.svg')}" type="image/svg+xml">`,
+    `<link rel="icon" href="${asset('/icons/favicon-bucalis-32.png')}" sizes="32x32" type="image/png">`,
+    `<link rel="apple-touch-icon" href="${asset('/icons/apple-bucalis-touch-icon.png')}">`,
     `<link rel="manifest" href="${asset('/site.webmanifest')}">`,
     ...(meta.jsonLd || []).map((bloco) => `<script type="application/ld+json">${json(bloco)}</script>`),
   ];
@@ -77,8 +80,8 @@ export function schemaClinica() {
     name: clinica.nome,
     description: clinica.descricao,
     url: urlAbsoluta('/'),
-    image: urlAbsoluta('/og-image.jpg'),
-    logo: urlAbsoluta('/icons/icon-512.png'),
+    image: urlAbsoluta('/og-bucalis-2026.png'),
+    logo: urlAbsoluta('/icons/icon-bucalis-512.png'),
     telephone: contato.telefone,
     email: contato.email,
     foundingDate: String(clinica.anoFundacao),
