@@ -1,4 +1,4 @@
-name: Compilar para publicar pela branch gh-pages
+name: Compilar site na branch main
 
 on:
   push:
@@ -10,84 +10,82 @@ on:
 permissions:
   contents: write
   pages: write
-  id-token: write
 
 concurrency:
-  group: compilar-site2
+  group: site2-main
   cancel-in-progress: false
 
 jobs:
   build:
-    name: Testar e preparar a branch de publicacao
+    name: Testar e atualizar arquivos estaticos da main
     runs-on: ubuntu-latest
     steps:
-      - name: Obter codigo-fonte
+      - name: Obter o repositorio
         uses: actions/checkout@v4
+        with:
+          persist-credentials: true
 
-      - name: Configurar Node.js
+      - name: Preparar Node.js
         uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
           cache: npm
 
-      - name: Obter base correta do GitHub Pages
-        id: pages
-        uses: actions/configure-pages@v5
-
       - name: Instalar dependencias
         run: npm ci
 
-      - name: Validar codigo e testes
+      - name: Verificar qualidade
         run: npm run lint && npm test
 
-      - name: Compilar React e gerar paginas HTML
+      - name: Compilar e pre-renderizar
         run: npm run build
         env:
-          BASE_PATH: ${{ steps.pages.outputs.base_path }}
-          SITE_URL: ${{ steps.pages.outputs.base_url }}
+          BASE_PATH: /site2/
+          SITE_URL: https://antonioordones.github.io/site2
 
-      - name: Conferir site compilado
+      - name: Verificar o resultado
         run: |
           npm run check
           test -s dist/index.html
           test -s dist/404.html
-          test -s dist/sitemap.xml
           test -d dist/assets
           if grep -q 'src/entry-client.jsx' dist/index.html; then
-            echo 'Erro: index.html ainda aponta para codigo React nao compilado'
+            echo 'index.html ainda referencia codigo React nao compilado'
             exit 1
           fi
 
-      # Os arquivos da main sao fonte React, nao devem ser publicados diretamente.
-      # A branch gh-pages contem exclusivamente o resultado compilado (dist).
-      # Settings > Pages > Source = Deploy from a branch; Branch = gh-pages / (root).
-      - name: Atualizar branch gh-pages com HTML compilado
+      # GitHub Pages: Settings > Pages > Deploy from a branch > main > /(root).
+      # O codigo React permanece em src/ e o template em template.html.
+      - name: Sincronizar arquivos compilados na main
         if: github.event_name != 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p "$RUNNER_TEMP/site2-publicado"
-          cp -a dist/. "$RUNNER_TEMP/site2-publicado/"
-          touch "$RUNNER_TEMP/site2-publicado/.nojekyll"
-
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-          if git ls-remote --exit-code --heads origin gh-pages >/dev/null 2>&1; then
-            git fetch origin gh-pages
-            git checkout -B gh-pages FETCH_HEAD
-          else
-            git checkout --orphan gh-pages
-          fi
-
-          git rm -r -f --ignore-unmatch .
-          git clean -fdx
-          cp -a "$RUNNER_TEMP/site2-publicado/." ./
-          git add -A
+          publicados=(
+            index.html 404.html .nojekyll assets icons favicon.svg og-image.jpg
+            sitemap.xml robots.txt site.webmanifest
+            acessibilidade clinica contato convenios privacidade termos tratamentos
+          )
+          git rm -r -f --ignore-unmatch -- "${publicados[@]}"
+          cp -a dist/. ./
+          touch .nojekyll
+          git add -A -- "${publicados[@]}"
 
           if git diff --cached --quiet; then
-            echo "Os arquivos publicados ja estao atualizados."
+            echo "O site estatico da main ja esta atualizado."
           else
-            git commit -m "publish: site2 compilado da main ${GITHUB_SHA}"
-            git push origin gh-pages
+            git commit -m "publish: atualizar HTML compilado na main [skip ci]"
+            git push origin HEAD:main
+
+            # Commits do GITHUB_TOKEN nao disparam build do Pages por branch.
+            # A API permite solicitar explicitamente a atualizacao.
+            tipo="$(gh api "repos/$GITHUB_REPOSITORY/pages" --jq '.build_type' 2>/dev/null || true)"
+            if [ "$tipo" = "legacy" ]; then
+              gh api -X POST "repos/$GITHUB_REPOSITORY/pages/builds" >/dev/null
+              echo "Atualizacao do GitHub Pages solicitada."
+            fi
           fi

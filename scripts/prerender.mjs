@@ -13,13 +13,13 @@ const raiz = resolve(import.meta.dirname, '..');
 const dist = join(raiz, 'dist');
 const distSsr = join(raiz, 'dist-ssr');
 
-const template = await readFile(join(dist, 'index.html'), 'utf8');
+const template = await readFile(join(dist, 'template.html'), 'utf8');
 const manifesto = JSON.parse(await readFile(join(dist, '.vite', 'manifest.json'), 'utf8'));
 const servidor = await import(pathToFileURL(join(distSsr, 'entry-server.js')).href);
 const { BASE, SITE_URL } = servidor;
 
 if (!template.includes('<!--app-head-->') || !template.includes('<!--app-html-->')) {
-  throw new Error('index.html precisa conter <!--app-head--> e <!--app-html-->.');
+  throw new Error('template.html precisa conter <!--app-head--> e <!--app-html-->.');
 }
 
 /* JS da página: o arquivo da rota e os pedaços que ele importa. */
@@ -88,6 +88,7 @@ await writeFile(join(dist, 'site.webmanifest'), JSON.stringify(servidor.manifest
 /* Limpeza: o pacote do servidor só serve para gerar o HTML. */
 await rm(distSsr, { recursive: true, force: true });
 await rm(join(dist, '.vite'), { recursive: true, force: true });
+await rm(join(dist, 'template.html'), { force: true });
 
 console.log(
   `\nPré-renderização concluída: ${caminhos.length + 1} páginas em ${SITE_URL}${BASE === '/' ? '' : ` (base ${BASE})`}`,
