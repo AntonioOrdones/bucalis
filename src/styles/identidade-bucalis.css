@@ -1,0 +1,152 @@
+/* Aplicacao transversal do manual de identidade Bucalis.
+   A ordem de camadas vem de base.css; nao substitui atributos semanticos
+   nem o recurso de alto contraste. */
+
+@layer componentes {
+  .cabecalho,
+  .menu-movel {
+    background: var(--bucalis-areia);
+  }
+  .cabecalho[data-rolado] {
+    border-bottom-color: var(--bucalis-taupe);
+    box-shadow: 0 10px 32px -25px rgb(46 23 17 / .42);
+  }
+  .cabecalho__link,
+  .menu-movel__lista a,
+  .botao,
+  .busca-convenios__rotulo,
+  .acessibilidade__titulo {
+    font-family: var(--fonte-texto);
+  }
+  .cabecalho__link { font-weight: 500; }
+  .cabecalho__link::after { background: var(--bucalis-vinho); }
+
+  .botao { font-weight: 600; letter-spacing: .005em; }
+  .botao--bronze {
+    background: var(--bucalis-areia);
+    background-size: auto;
+    color: var(--bucalis-cacau);
+    box-shadow: 0 12px 27px -18px rgb(46 23 17 / .52);
+  }
+  .botao--bronze:hover {
+    background: var(--bucalis-cinza);
+    color: var(--bucalis-cacau);
+  }
+  .botao--whatsapp, .atendimento__botao {
+    background: var(--bucalis-vinho);
+  }
+  .botao--whatsapp:hover, .atendimento__botao:hover {
+    background: var(--bucalis-cacau);
+  }
+  .atendimento__botao {
+    box-shadow: 0 10px 28px -10px rgb(46 23 17 / .75), 0 0 0 4px rgb(237 227 215 / .95);
+  }
+  .painel-convenios {
+    background: linear-gradient(145deg, var(--bucalis-vinho), var(--bucalis-cacau));
+  }
+  .painel-convenios__curva {
+    color: rgb(202 202 202 / .19);
+  }
+  .painel-convenios__busca {
+    background: var(--branco);
+  }
+  .busca-convenios__campo input::placeholder {
+    color: var(--bucalis-malva);
+  }
+  .busca-convenios__campo input:focus-visible,
+  .ficha input:focus-visible + span {
+    outline-color: var(--bucalis-vinho);
+  }
+  .acessibilidade__botao,
+  .acessibilidade__alternar .icone {
+    color: var(--bucalis-vinho);
+  }
+  .acessibilidade__segmentos button[aria-pressed='true'],
+  .acessibilidade__botao:hover,
+  .acessibilidade__botao[aria-expanded='true'] {
+    background: var(--bucalis-vinho);
+    border-color: var(--bucalis-vinho);
+    color: var(--bucalis-areia);
+  }
+  .acessibilidade__alternar[aria-pressed='true'] {
+    background: var(--bucalis-areia);
+    border-color: var(--bucalis-vinho);
+  }
+}
+
+@layer paginas {
+  .fachada__parede {
+    background:
+      linear-gradient(90deg, rgb(46 23 17 / .95), rgb(72 19 16 / .61)),
+      repeating-linear-gradient(90deg, #2e1711 0 1rem, #481310 1rem 1.07rem, #2e1711 1.07rem 2.1rem);
+  }
+  .fachada__luzes {
+    background: radial-gradient(ellipse at 65% 35%, rgb(237 227 215 / .17), transparent 58%);
+  }
+  .fachada__colunata { color: var(--bucalis-taupe); }
+  .fachada__titulo { color: var(--bucalis-areia); max-width: 17ch; }
+  .fachada__apoio { color: var(--bucalis-cinza); }
+  .fachada__letreiro .marca--bucalis { color: var(--bucalis-areia); }
+
+  .secao__titulo,
+  .topo-pagina h1,
+  .fachada__titulo,
+  .chamada__titulo {
+    font-family: var(--fonte-exibicao);
+    font-weight: 500;
+    letter-spacing: -.025em;
+    line-height: 1.04;
+  }
+  .chamada {
+    background: linear-gradient(125deg, var(--bucalis-vinho), var(--bucalis-cacau));
+  }
+  .chamada__titulo { font-family: var(--fonte-higuen); }
+  .painel-convenios h2 {
+    font-family: var(--fonte-tan);
+    font-weight: 500;
+    letter-spacing: -.015em;
+  }
+  /* A caligrafia Burgues fica reservada a acentos curtos.
+     Legendas longas permanecem em Poppins para manter a leitura. */
+  .sobre__legenda {
+    font-family: var(--fonte-texto);
+    font-size: var(--fs-0);
+    line-height: 1.65;
+  }
+  .numeros__item dd {
+    font-family: var(--fonte-higuen);
+    color: var(--bucalis-vinho);
+  }
+  .especialidade {
+    border-color: var(--bucalis-taupe);
+    background: var(--bucalis-areia);
+  }
+  .especialidade__icone, .cartao-tratamento__icone {
+    color: var(--bucalis-vinho);
+  }
+  .plano-piloto__lago { fill: var(--bucalis-cinza); }
+  .formulario__status, .campo__erro { color: var(--bucalis-vinho); }
+  .marca--bucalis .marca__complemento {
+    font-family: var(--fonte-texto);
+    font-weight: 500;
+    letter-spacing: .13em;
+  }
+  .cabecalho .marca--bucalis { color: var(--bucalis-cacau); }
+  .rodape .marca--bucalis { color: var(--bucalis-areia); }
+}
+
+/* Evita que pesos e formas ornamentais prejudiquem a leitura ampliada. */
+@media (max-width: 40rem) {
+  @layer paginas {
+    .secao__titulo, .topo-pagina h1, .chamada__titulo, .fachada__titulo {
+      text-wrap: balance;
+      overflow-wrap: break-word;
+    }
+    .fachada__titulo { max-width: 14ch; }
+  }
+}
+@media print {
+  @layer componentes {
+    .cabecalho, .menu-movel { background: #ffffff; }
+  }
+}

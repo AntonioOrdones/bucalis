@@ -98,33 +98,36 @@
   h2,
   h3,
   h4 {
-    font-family: var(--fonte-titulo);
+    font-family: var(--fonte-exibicao);
     color: var(--tinta);
     line-height: var(--entrelinha-titulo);
     font-weight: 500;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.015em;
     text-wrap: balance;
   }
 
   h1 {
     font-size: var(--fs-7);
-    font-weight: 400;
+    font-weight: 500;
     letter-spacing: -0.02em;
   }
 
   h2 {
     font-size: var(--fs-6);
-    font-weight: 450;
+    font-weight: 500;
     letter-spacing: -0.015em;
   }
 
-  h3 {
-    font-size: var(--fs-4);
+  h3,
+  h4 {
+    font-family: var(--fonte-titulo);
+    font-weight: 500;
+    line-height: 1.35;
+    letter-spacing: -.01em;
   }
 
-  h4 {
-    font-size: var(--fs-3);
-  }
+  h3 { font-size: var(--fs-4); }
+  h4 { font-size: var(--fs-3); }
 
   p,
   li,

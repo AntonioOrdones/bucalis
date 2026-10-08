@@ -1,36 +1,59 @@
-# Identidade visual
+# Manual de identidade visual aplicado ao site Bucalis
 
-A base vem da referência (Primore): madeira escura, bronze, fundos claros, botões em pílula e um bronze polido nas ações principais. Sobre ela, três homenagens discretas a Brasília.
+Base: PDF **Boston angel.pdf** enviado pela clínica (4 páginas). Esta referência substitui os temas anteriores inspirados em Alvorada, madeira bronze e azul.
 
-## Brasília em três detalhes
+## Paleta oficial
 
-| Referência                        | Onde aparece                                                                                                                                                                             | Arquivo                                                                    |
-| --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| **Curvas de Oscar Niemeyer**      | Símbolo da marca (um dente desenhado como um trecho da colunata do Palácio da Alvorada); molduras em arco nas fotos; colunata em traço fino na base da abertura; arcos ligando as etapas | `components/Marca.jsx`, `components/Colunata.jsx`, `components/Etapas.jsx` |
-| **Azulejos de Athos Bulcão**      | Painel da seção “A clínica”, monogramas da equipe, faixa do rodapé, painel do Instagram e página 404                                                                                     | `components/Azulejos.jsx`                                                  |
-| **Bronzes de Alfredo Ceschiatti** | Botões em bronze polido e números da apresentação                                                                                                                                        | `--metal-bronze` em `styles/tokens.css`                                    |
+| Token | Hex | Uso |
+| --- | --- | --- |
+| `--bucalis-cinza` | `#cacaca` | Apoios visuais e divisórias claras |
+| `--bucalis-areia` | `#ede3d7` | Fundo de seções, texto em fundos escuros e identidade |
+| `--bucalis-taupe` | `#a29c8a` | Linhas, ícones decorativos, detalhes |
+| `--bucalis-oliva` | `#7b7562` | Ícones e recursos auxiliares |
+| `--bucalis-malva` | `#735e59` | Texto secundário sobre fundo claro |
+| `--bucalis-vinho` | `#481310` | Botões, links, títulos e destaques |
+| `--bucalis-cacau` | `#2e1711` | Fundo de painéis escuros e tipografia |
 
-Os azulejos são **módulos originais** (quarto de círculo, arco, faixa e diagonal) assentados em rotações livres — o método que Athos Bulcão usava —, sem reproduzir painéis do artista. As rotações vêm de um gerador com semente: o desenho é sempre o mesmo para uma mesma `semente`, e o servidor e o navegador o desenham igual. Passe o mouse sobre um azulejo: ele gira.
+Estas sete cores estão definidas em `src/styles/tokens.css`. Nomes CSS antigos como `--bronze-500` e `--azulejo-600` são aliases de valores oficiais; continuam disponíveis apenas para compatibilidade, **sem introduzir azul ou dourado na interface**.
 
-A página “A clínica” explica essas homenagens na seção “Brasília em cada detalhe”.
+Branco puro pode aparecer como superfície funcional de formulários, cartões e controles. A transparência dos tons oficiais também é permitida para sombras e efeitos, sem adicionar outra cor institucional.
 
-## Tokens
+**Acessibilidade:** o texto principal usa vinho/cacau sobre areia/branco; o cinza e o oliva são preferidos para decorações e bordas, não para parágrafos pequenos. O modo de alto contraste continua independente da paleta.
 
-Definidos em `src/styles/tokens.css`:
+## Tipografia
 
-- **Madeira:** `--jacaranda-900` (fundos escuros, rodapé) e `--cacau-700` (botão principal).
-- **Bronze:** `--bronze-600` (títulos), `--bronze-500`, `--bronze-300` e `--bronze-100`.
-- **Mármore:** `--branco`, `--marmore-100` (seções alternadas) e `--linha` (bordas).
-- **Azulejo:** `--azulejo-600`, usado com parcimônia — foco do teclado, rótulos e alguns azulejos.
-- **Tipografia:** Jost (títulos; herdeira da Futura, a letra do modernismo) e Source Sans 3 (textos). Escala de 14 a 72 px em `--fs-0` a `--fs-7`.
-- **Formas:** pílula para ações, raio grande para painéis e **arco** (`--raio-arco`) para imagens.
+O manual enviado mostra os seguintes nomes (páginas 3 e 4):
 
-## Trocar a marca
+- **Poppins Regular/Bold/Italic/Bold Italic:** texto de leitura, interface, navegação, formulários e botões; fonte aberta carregada pela folha de estilos do Google Fonts no arquivo `template.html`.
+- **Boston Angel Light/Bold:** títulos principais e aberturas. Token `--fonte-exibicao`; alternativa aberta temporária: Bodoni Moda.
+- **Higuen Elegant Serif:** destaques editoriais. Token `--fonte-higuen`; alternativa temporária: Cormorant Garamond.
+- **TAN Garland:** painéis editoriais e chamadas de convênios. Token `--fonte-tan`; alternativa temporária: Cormorant Garamond.
+- **Burgues Script:** caligrafia de acentos muito curtos. Token `--fonte-assinatura`; alternativa temporária: Great Vibes. Não usar para parágrafos.
+- **Logotipo Bucalis:** a assinatura existente em `src/components/Marca.jsx` é desenho vetorial e **não** deve ser reescrita com uma fonte tipográfica.
 
-- **Nome:** `clinica.nome` e `clinica.nomeCurto` em `src/data/clinica.js`. O letreiro da abertura e o cabeçalho usam o nome em texto, então mudam sozinhos.
-- **Símbolo:** o desenho está em `CAMINHO_SIMBOLO` (`components/Marca.jsx`) e em `public/favicon.svg`. Para usar um logotipo em imagem, substitua o componente `Simbolo` por uma `<img>`.
-- **Cores:** ajuste os tokens. Mantenha contraste mínimo de 4,5:1 para textos (verifique em [contrast-ratio.com](https://contrast-ratio.com/)).
+### Limitação dos arquivos de fonte
 
-## Movimento
+O PDF contém **amostras incorporadas como subconjuntos de fonte**, não necessariamente arquivos completos com todos os caracteres necessários a um site. Não extraia nem redistribua subconjuntos comerciais do PDF. Para exibir Boston Angel, Higuen, TAN Garland e Burgues Script **exatamente como no material**, a clínica precisa fornecer arquivos de fonte completos e uma licença adequada para uso na web (`woff2`/webfont). Sem isso, o navegador usa as alternativas abertas acima. Nenhuma imagem vetorial da assinatura foi substituída.
 
-Um único momento orquestrado: as luzes da abertura “acendem” ao carregar. O restante do movimento responde ao visitante (azulejos que giram, cartões que se empilham ao rolar). Tudo é desligado com “Reduzir animações” ou com a preferência do sistema.
+## Aplicação por componente
+
+| Área | Aplicação |
+| --- | --- |
+| Início e títulos h1/h2 | Boston Angel com alternativa Bodoni Moda |
+| Títulos de chamadas | Higuen com alternativa Cormorant Garamond |
+| Painel de convênios | TAN Garland com alternativa Cormorant Garamond |
+| Navegação e menus | Poppins |
+| Descrições e textos | Poppins |
+| Formulários, agendamento e atendimento | Poppins |
+| Rodapé e links legais | Poppins + tons oficiais |
+| Controles de acessibilidade | Vinho/areia; modo alto contraste preservado |
+| Painéis de azulejos | Apenas os sete tons da paleta |
+| Redes sociais, favicon e manifest | Tons oficiais definidos em `scripts/gerar-identidade.py` |
+
+## Manutenção
+
+1. Evite especificar novas cores hexadecimal nos componentes; utilize tokens `--bucalis-*`.
+2. Para novas seções, defina a hierarquia com fonte editorial nos títulos e Poppins no texto.
+3. Preserve contraste e legibilidade, inclusive no celular.
+4. Depois de alterar a identidade, execute `npm run verify`. O GitHub Actions também regenera as imagens, o HTML e a versão compilada do site.
+5. O repositório principal permanece em `main`. A publicação atual do Pages utiliza os arquivos HTML compilados espelhados em `gh-pages`, até que o proprietário altere a fonte em Settings → Pages.

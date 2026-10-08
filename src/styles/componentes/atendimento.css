@@ -20,8 +20,8 @@
     background: var(--whatsapp);
     color: #fff;
     box-shadow:
-      0 10px 28px -10px rgb(10 95 85 / 0.75),
-      0 0 0 4px rgb(255 255 255 / 0.9);
+      0 10px 28px -10px rgb(46 23 17 / 0.75),
+      0 0 0 4px rgb(237 227 215 / 0.9);
     transition:
       transform var(--transicao),
       background-color var(--transicao);
@@ -91,7 +91,7 @@
     height: 2.5rem;
     border: 0;
     border-radius: 50%;
-    background: rgb(246 238 230 / 0.1);
+    background: rgb(237 227 215 / 0.1);
     color: var(--texto-claro);
   }
 

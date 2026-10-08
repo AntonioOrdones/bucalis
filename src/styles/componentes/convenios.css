@@ -12,7 +12,7 @@
     padding: clamp(2rem, 1.25rem + 4vw, 4.5rem);
     overflow: hidden;
     border-radius: clamp(1.5rem, 1rem + 2vw, 2.75rem);
-    background: linear-gradient(135deg, #6c3f25 0%, var(--cacau-700) 55%, var(--jacaranda-900) 100%);
+    background: linear-gradient(135deg, #481310 0%, var(--cacau-700) 55%, var(--jacaranda-900) 100%);
     color: var(--texto-claro-suave);
   }
 
@@ -27,7 +27,7 @@
     inset: auto -5% -12% auto;
     z-index: -1;
     width: min(46rem, 90%);
-    color: rgb(226 198 166 / 0.22);
+    color: rgb(202 202 202 / 0.22);
     stroke-width: 1.5;
   }
 
@@ -93,7 +93,7 @@
   }
 
   .busca-convenios__campo input::placeholder {
-    color: #8a7d74;
+    color: #735e59;
   }
 
   .busca-convenios__campo input:focus-visible {
