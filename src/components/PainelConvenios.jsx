@@ -15,8 +15,8 @@ export default function PainelConvenios() {
           <div className="painel-convenios__cabeca">
             <h2 id="convenios-titulo">Convênios</h2>
             <p>
-              Atendemos {convenios.length} planos odontológicos e de saúde, além do atendimento particular.
-              Como a cobertura varia de um plano para outro, confirme com a nossa equipe antes da consulta.
+              Consulte os {convenios.length} convênios listados em nosso material institucional.
+              Confirme com a equipe se o seu plano, a modalidade e o procedimento estão cobertos.
             </p>
             <Botao variante="claro" para="/convenios/" iconeFinal="seta">
               Ver todos os convênios

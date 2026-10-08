@@ -83,8 +83,8 @@ export function schemaClinica() {
     image: urlAbsoluta('/og-bucalis-2026.png'),
     logo: urlAbsoluta('/icons/icon-bucalis-512.png'),
     telephone: contato.telefone,
-    email: contato.email,
-    foundingDate: String(clinica.anoFundacao),
+    ...(contato.email ? { email: contato.email } : {}),
+    ...(clinica.anoFundacao ? { foundingDate: String(clinica.anoFundacao) } : {}),
     address: {
       '@type': 'PostalAddress',
       streetAddress: [endereco.logradouro, endereco.complemento].filter(Boolean).join(', '),
@@ -93,11 +93,13 @@ export function schemaClinica() {
       postalCode: endereco.cep,
       addressCountry: 'BR',
     },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: endereco.latitude,
-      longitude: endereco.longitude,
-    },
+    ...(Number.isFinite(endereco.latitude) && Number.isFinite(endereco.longitude)
+      ? { geo: {
+          '@type': 'GeoCoordinates',
+          latitude: endereco.latitude,
+          longitude: endereco.longitude,
+        } }
+      : {}),
     hasMap: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(clinica.mapa.consulta)}`,
     areaServed: { '@type': 'City', name: 'Brasília' },
     openingHoursSpecification: horariosSchema(clinica.horarios),

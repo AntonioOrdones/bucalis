@@ -47,6 +47,13 @@ jobs:
           python -m pip install --disable-pip-version-check Pillow==11.3.0
           python scripts/gerar-identidade.py
 
+      - name: Preparar fotografias reais da Bucalis
+        run: |
+          unzip -q -o scripts/assets/fotos-bucalis-web.zip -d public
+          test "$(find public/fotos -type f -name 'foto-*.webp' | wc -l)" -eq 19
+          test -s public/fotos/foto-296.webp
+          test -s public/fotos/foto-141.webp
+
       - name: Compilar e pre-renderizar
         run: npm run build
         env:
@@ -58,6 +65,8 @@ jobs:
           npm run check
           test -s dist/index.html
           test -s dist/404.html
+          test -s dist/fotos/foto-296.webp
+          test -s dist/fotos/foto-141.webp
           test -d dist/assets
           test -s dist/og-bucalis-2026.png
           test -s dist/favicon-bucalis.svg
@@ -82,7 +91,7 @@ jobs:
           publicados=(
             index.html 404.html .nojekyll assets icons favicon.svg favicon-bucalis.svg og-image.jpg og-bucalis-2026.png
             sitemap.xml robots.txt site.webmanifest
-            acessibilidade clinica contato convenios privacidade termos tratamentos
+            acessibilidade clinica contato convenios privacidade termos tratamentos fotos
           )
           git rm -r -f --ignore-unmatch -- "${publicados[@]}"
           cp -a dist/. ./

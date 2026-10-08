@@ -25,7 +25,7 @@ export default function Rodape() {
             <Marca />
             <span className="visualmente-oculto">, página inicial</span>
           </a>
-          <p>Odontologia especializada no coração de Brasília, com todas as especialidades em um só lugar.</p>
+          <p>Odontologia especializada. Cuidado integrado. Cuidar começa por escutar.</p>
           {redes.instagram && (
             <a
               className="rodape__social"
@@ -90,10 +90,12 @@ export default function Rodape() {
               <Icone nome="telefone" />
               <span>{contato.telefoneExibicao}</span>
             </a>
-            <a href={`mailto:${contato.email}`}>
-              <Icone nome="email" />
-              <span>{contato.email}</span>
-            </a>
+            {contato.email && (
+              <a href={`mailto:${contato.email}`}>
+                <Icone nome="email" />
+                <span>{contato.email}</span>
+              </a>
+            )}
             <p>
               <Icone nome="local" />
               <span>
@@ -109,15 +111,16 @@ export default function Rodape() {
       </div>
 
       <div className="conteiner rodape__legal">
-        <div className="rodape__registro">
-          <p>
-            {legal.razaoSocial}, CNPJ {legal.cnpj}. Inscrição {legal.inscricaoCro}.
-          </p>
-          <p>
-            {rotuloResponsavelTecnico(legal.responsavelTecnico.nome)}: {legal.responsavelTecnico.nome},{' '}
-            {legal.responsavelTecnico.cro}.
-          </p>
-        </div>
+        {(legal.razaoSocial || legal.cnpj || legal.inscricaoCro || legal.responsavelTecnico.cro) && (
+          <div className="rodape__registro">
+            {(legal.razaoSocial || legal.cnpj || legal.inscricaoCro) && (
+              <p>{[legal.razaoSocial, legal.cnpj && `CNPJ ${legal.cnpj}`, legal.inscricaoCro].filter(Boolean).join(', ')}.</p>
+            )}
+            {legal.responsavelTecnico.nome && legal.responsavelTecnico.cro && (
+              <p>{rotuloResponsavelTecnico(legal.responsavelTecnico.nome)}: {legal.responsavelTecnico.nome}, {legal.responsavelTecnico.cro}.</p>
+            )}
+          </div>
+        )}
         <ul className="rodape__links-legais">
           {linksLegais.map((link) => (
             <li key={link.para}>

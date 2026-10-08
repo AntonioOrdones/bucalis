@@ -3,6 +3,7 @@ export const menuPrincipal = [
   { rotulo: 'A clínica', para: '/clinica/', secao: '/clinica/' },
   { rotulo: 'Tratamentos', para: '/tratamentos/', secao: '/tratamentos/' },
   { rotulo: 'Equipe', para: '/clinica/#equipe', secao: null },
+  { rotulo: 'Nosso espaço', para: '/clinica/#espaco', secao: null },
   { rotulo: 'Convênios', para: '/convenios/', secao: '/convenios/' },
   { rotulo: 'Contato', para: '/contato/', secao: '/contato/' },
 ];

@@ -3,16 +3,15 @@ import ChamadaFinal from '../components/ChamadaFinal.jsx';
 import Especialidades from '../components/Especialidades.jsx';
 import Etapas from '../components/Etapas.jsx';
 import Fachada from '../components/Fachada.jsx';
+import GaleriaEspaco from '../components/GaleriaEspaco.jsx';
 import Localizacao from '../components/Localizacao.jsx';
 import PainelConvenios from '../components/PainelConvenios.jsx';
 import Perguntas from '../components/Perguntas.jsx';
-import Profissional from '../components/Profissional.jsx';
 import { Avaliacoes, Instagram } from '../components/RedesSociais.jsx';
 import SobreClinica from '../components/SobreClinica.jsx';
 import { VideoYouTube } from '../components/Terceiros.jsx';
 import { clinica } from '../data/clinica.js';
 import { etapasPrimeiraConsulta } from '../data/conteudo.js';
-import { equipe } from '../data/equipe.js';
 import { perguntasFrequentes } from '../data/faq.js';
 import { schemaClinica, schemaPerguntas, schemaSite } from '../lib/seo.js';
 import { linkWhatsApp } from '../lib/whatsapp.js';
@@ -23,8 +22,6 @@ export function meta() {
     jsonLd: [schemaClinica(), schemaSite(), schemaPerguntas(perguntasFrequentes)],
   };
 }
-
-const EQUIPE_NA_HOME = 8;
 
 export default function Inicio() {
   const { youtubeVideoId } = clinica.integracoes;
@@ -69,33 +66,7 @@ export default function Inicio() {
         </div>
       </section>
 
-      <section className="secao secao--marmore equipe" id="equipe" aria-labelledby="equipe-titulo">
-        <div className="conteiner">
-          <div className="equipe__cabeca">
-            <div className="secao__cabeca">
-              <h2 id="equipe-titulo" className="secao__titulo">
-                Conheça nossos profissionais
-              </h2>
-              <p className="secao__apoio">
-                Especialistas que trabalham em conjunto para planejar cada tratamento — e explicar cada etapa
-                a você.
-              </p>
-            </div>
-            {equipe.length > EQUIPE_NA_HOME && (
-              <Botao variante="contorno" para="/clinica/#equipe" iconeFinal="seta">
-                Ver toda a equipe
-              </Botao>
-            )}
-          </div>
-          <ul className="equipe__grade">
-            {equipe.slice(0, EQUIPE_NA_HOME).map((pessoa, i) => (
-              <li key={`${pessoa.nome}-${i}`}>
-                <Profissional pessoa={pessoa} indice={i} />
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      <GaleriaEspaco limite={6} id="conheca-espaco" />
 
       <PainelConvenios />
       <Avaliacoes />

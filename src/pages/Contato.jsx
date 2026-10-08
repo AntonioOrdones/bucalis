@@ -39,7 +39,7 @@ export default function Contato() {
       valor: contato.telefoneExibicao,
       para: linkTelefone(),
     },
-    {
+    contato.email && {
       icone: 'email',
       titulo: 'E-mail',
       valor: contato.email,
@@ -58,8 +58,8 @@ export default function Contato() {
     <>
       <TopoPagina
         trilha={trilha}
-        titulo="Agende sua avaliação"
-        apoio="Escolha o canal mais prático para você. A nossa equipe responde com os horários disponíveis."
+        titulo="Vamos começar pelo primeiro passo."
+        apoio="Você não precisa chegar com um diagnóstico. Conte o que procura: nossa equipe está disponível para ouvir você."
         visual={<ArcoTopo icone="calendario" semente={1961} />}
       />
 

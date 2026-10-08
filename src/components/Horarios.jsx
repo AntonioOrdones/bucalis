@@ -17,7 +17,7 @@ export default function Horarios({ compacto = false, mostrarSituacao = true }) {
     return () => window.clearInterval(intervalo);
   }, [mostrarSituacao]);
 
-  const fechaDomingo = !clinica.horarios.some((h) => h.diasSemana.includes(0));
+  const fechaFimDeSemana = !clinica.horarios.some((h) => h.diasSemana.includes(0) || h.diasSemana.includes(6));
 
   return (
     <div className={`horarios${compacto ? ' horarios--compacto' : ''}`}>
@@ -36,9 +36,9 @@ export default function Horarios({ compacto = false, mostrarSituacao = true }) {
             </dd>
           </div>
         ))}
-        {fechaDomingo && (
+        {fechaFimDeSemana && (
           <div>
-            <dt>Domingos e feriados</dt>
+            <dt>Sábados e domingos</dt>
             <dd>Fechado</dd>
           </div>
         )}
