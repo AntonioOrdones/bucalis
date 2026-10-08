@@ -46,7 +46,7 @@ export default function Convenios() {
       <TopoPagina
         trilha={trilha}
         titulo="Convênios"
-        apoio={`Atendemos ${convenios.length} planos odontológicos e de saúde, além do atendimento particular.`}
+        apoio={`Veja ${convenios.length} convênios listados pela clínica. A aceitação e a cobertura devem ser confirmadas para cada plano.`}
         visual={<ArcoTopo icone="check" semente={1967} />}
       />
 

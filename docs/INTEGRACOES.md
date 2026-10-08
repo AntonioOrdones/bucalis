@@ -56,3 +56,29 @@ Jost e Source Sans 3 são servidas pelo próprio site (pacotes Fontsource), sem 
 ## Antes de adicionar um novo serviço externo
 
 Registre: finalidade, dados que podem ser enviados, quando o script carrega, se depende de consentimento, política de privacidade do fornecedor, comportamento quando o serviço falha e quem administra a conta. Depois, inclua o serviço na categoria certa do consentimento e na política de privacidade.
+
+
+## Widgets Elfsight preparados em outubro de 2026
+
+A Bucalis disponibilizou **exemplos** de instalação para Google Reviews e Instagram Feed:
+
+```html
+<!-- Google Reviews: exemplo de identificação, não necessariamente validado -->
+<script src="https://elfsightcdn.com/platform.js" async></script>
+<div class="elfsight-app-23de462b-ae38-4aac-95c6-f3b2e4cb36d0" data-elfsight-app-lazy></div>
+
+<!-- Instagram Feed: exemplo de identificação, não necessariamente validado -->
+<script src="https://elfsightcdn.com/platform.js" async></script>
+<div class="elfsight-app-27adea07-24c9-475b-8dad-760fa3506282" data-elfsight-app-lazy></div>
+```
+
+**O site já dispõe do componente `WidgetElfsight`** em `src/components/Terceiros.jsx` e das seções em `src/components/RedesSociais.jsx`. Para ativar, insira somente os UUIDs conferidos no painel da conta Elfsight em `src/data/clinica.js`:
+
+- `integracoes.elfsightAvaliacoesGoogle = '<ID confirmado do Google Reviews>'`
+- `integracoes.elfsightFeedInstagram = '<ID confirmado do Instagram Feed>'`
+
+O código carrega `https://elfsightcdn.com/platform.js` **uma única vez, somente após consentimento de terceiros ou um clique explícito em “Mostrar”**. Não duplique `<script>` nas páginas. O atributo `data-elfsight-app-lazy` está no contêiner do widget. Os IDs apresentados acima permanecem **comentados** na configuração até confirmação de que pertencem ao perfil da clínica; evitar exibir avaliações ou postagens de outra empresa. Para testes, valide renderização após aceitar/rejeitar cookies e com bloqueador de scripts. O perfil Google, ainda não confirmado, permanece sem URL no cadastro.
+
+### Fotos internas
+
+As 19 fotos enviadas estão armazenadas em `scripts/assets/fotos-bucalis-web.zip` (originais otimizados para WebP) e são extraídas para `public/fotos/` no GitHub Actions antes de compilar. O build gera `/bucalis/fotos/foto-*.webp`; dados e descrições estão em `src/data/fotografias.js`.

@@ -11,6 +11,7 @@
 import { readdir, readFile, stat } from 'node:fs/promises';
 import { join, relative, resolve, sep } from 'node:path';
 import { parseHTML } from 'linkedom';
+import { fotografias } from '../src/data/fotografias.js';
 
 const raiz = resolve(import.meta.dirname, '..');
 const dist = join(raiz, 'dist');
@@ -197,6 +198,12 @@ for (const obrigatorio of [
   'icons/favicon-bucalis-32.png',
 ]) {
   if (!(await existe(join(dist, obrigatorio)))) erros.push(`arquivo ausente: ${obrigatorio}`);
+}
+
+/* Arquivos de todas as fotografias da Bucalis, sem dependência externa. */
+for (const foto of fotografias) {
+  const caminho = join(dist, foto.src.replace(/^\//, ''));
+  if (!(await existe(caminho))) erros.push(`fotografia ausente: ${foto.src}`);
 }
 
 /* Pendências de conteúdo (dados provisórios) */

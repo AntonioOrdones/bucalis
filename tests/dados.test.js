@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { clinica } from '../src/data/clinica.js';
 import { convenios } from '../src/data/convenios.js';
 import { equipe } from '../src/data/equipe.js';
+import { fotografias } from '../src/data/fotografias.js';
 import { perguntasFrequentes } from '../src/data/faq.js';
 import { tratamentos } from '../src/data/tratamentos.js';
 
@@ -42,6 +43,26 @@ describe('dados do site', () => {
     for (const h of clinica.horarios) {
       expect(h.abre).toMatch(/^\d{2}:\d{2}$/);
       expect(h.fecha).toMatch(/^\d{2}:\d{2}$/);
+    }
+  });
+
+  it('usa contatos, endereco e horarios oficiais informados pela Bucalis', () => {
+    expect(clinica.contato.whatsapp).toBe('5561992924408');
+    expect(clinica.contato.telefone).toBe('+556133461495');
+    expect(clinica.endereco.cep).toBe('70390-108');
+    expect(clinica.endereco.logradouro).toBe('SEPS Q 710/910');
+    expect(clinica.horarios).toHaveLength(1);
+    expect(clinica.horarios[0]).toMatchObject({ abre: '09:00', fecha: '18:00', diasSemana: [1, 2, 3, 4, 5] });
+    expect(clinica.anoFundacao).toBeNull();
+    expect(clinica.legal.cnpj).toBe('');
+  });
+
+  it('cataloga as 19 fotografias reais e usa caminhos locais unicos', () => {
+    expect(fotografias).toHaveLength(19);
+    expect(new Set(fotografias.map((f) => f.id)).size).toBe(19);
+    for (const foto of fotografias) {
+      expect(foto.src).toMatch(/^\/fotos\/foto-\d{3}\.webp$/);
+      expect(foto.descricao.length).toBeGreaterThan(15);
     }
   });
 

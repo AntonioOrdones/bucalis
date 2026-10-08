@@ -12,7 +12,7 @@ const trilha = [
 export function meta() {
   return {
     titulo: 'Política de privacidade',
-    descricao: `Como a ${clinica.nome} trata dados pessoais, em conformidade com a Lei Geral de Proteção de Dados (LGPD).`,
+    descricao: `Como a ${clinica.nome} trata dados pessoais, e as opções de privacidade disponíveis neste site.`,
     caminho: '/privacidade/',
     jsonLd: [schemaTrilha(trilha)],
   };
@@ -32,10 +32,10 @@ export default function Privacidade() {
           <article className="texto-corrido">
             <h2>1. Quem é o responsável pelos seus dados</h2>
             <p>
-              O controlador dos dados é {legal.razaoSocial}, CNPJ {legal.cnpj}, com endereço em{' '}
-              {enderecoCompleto}. O encarregado pelo tratamento de dados pessoais é {legal.encarregado.nome},
-              que pode ser contatado pelo e-mail{' '}
-              <a href={`mailto:${legal.encarregado.email}`}>{legal.encarregado.email}</a>.
+              O atendimento é realizado pela {clinica.nome}, no endereço {enderecoCompleto}.
+              Os dados cadastrais da pessoa jurídica e o canal específico do encarregado de dados
+              serão publicados após confirmação com a administração da clínica. Para contato
+              inicial, utilize o telefone {contato.telefoneExibicao}.
             </p>
 
             <h2>2. Quais dados tratamos</h2>
@@ -129,9 +129,9 @@ export default function Privacidade() {
               <li>revogar o consentimento e se opor a tratamentos.</li>
             </ul>
             <p>
-              Para exercer seus direitos, escreva para{' '}
-              <a href={`mailto:${legal.encarregado.email}`}>{legal.encarregado.email}</a>. Você também pode
-              apresentar reclamação à Autoridade Nacional de Proteção de Dados (ANPD).
+              Para solicitar informações ou exercer seus direitos, entre em contato pelo telefone
+              {' '}{contato.telefoneExibicao}. A clínica deverá indicar seu canal específico de privacidade
+              assim que ele estiver confirmado. Você também pode apresentar reclamação à ANPD.
             </p>
 
             <h2>9. Crianças e adolescentes</h2>
@@ -149,9 +149,7 @@ export default function Privacidade() {
 
             <h2>11. Contato</h2>
             <p>
-              Dúvidas sobre esta política:{' '}
-              <a href={`mailto:${legal.encarregado.email}`}>{legal.encarregado.email}</a> ou{' '}
-              {contato.telefoneExibicao}.
+              Dúvidas sobre esta política: {contato.telefoneExibicao}.
             </p>
           </article>
         </div>

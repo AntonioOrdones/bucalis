@@ -43,7 +43,7 @@ export const perguntasFrequentes = [
       'Um documento com foto, a carteirinha do convênio (se for o caso), exames recentes que você tiver e a lista dos medicamentos que usa.',
   },
   {
-    pergunta: 'Como chegar e onde estacionar?',
+    pergunta: 'Onde fica a clínica e como chegar?',
     resposta: clinica.endereco.comoChegar,
     link: { texto: 'Ver localização', para: '/contato/#localizacao' },
   },

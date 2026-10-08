@@ -1,68 +1,50 @@
-import { anosDeExperiencia, clinica } from '../data/clinica.js';
-import { equipe } from '../data/equipe.js';
+import { clinica } from '../data/clinica.js';
 import { asset } from '../lib/url.js';
-import Azulejos from './Azulejos.jsx';
 import Botao from './Botao.jsx';
-import Contador from './Contador.jsx';
 
-/** Apresentação da clínica na home: texto, números e o painel em arco. */
+/** Apresentação institucional da Bucalis, sem números não confirmados. */
 export default function SobreClinica() {
-  const numeros = [
-    { valor: anosDeExperiencia, rotulo: 'anos de experiência' },
-    { valor: equipe.length, rotulo: 'especialistas' },
-    { valor: clinica.consultorios, rotulo: 'consultórios' },
-  ];
-
   return (
     <section className="secao sobre" aria-labelledby="sobre-titulo">
       <div className="conteiner sobre__grade">
         <div className="sobre__texto">
+          <p className="galeria-espaco__sobretitulo">Cuidado que começa na escuta</p>
           <h2 id="sobre-titulo" className="secao__titulo">
-            {anosDeExperiencia} anos cuidando de sorrisos em Brasília
+            Conhecimento especializado. Olhar integrado.
           </h2>
           <p className="secao__apoio">
-            Uma clínica que reúne especialistas de todas as áreas da odontologia para cuidar de você e da sua
-            família — da primeira consulta aos tratamentos mais complexos.
+            A Bucalis reúne experiência clínica, planejamento e atenção
+            individualizada para compreender a saúde bucal de cada pessoa.
           </p>
           <p>
-            Cada plano de tratamento é discutido em equipe e explicado com clareza, com tempo para tirar
-            dúvidas. Técnicas atuais e um atendimento sem pressa, em um espaço pensado para o seu conforto.
+            Mais do que tratar dentes, cuidamos de histórias, necessidades e pessoas.
+            Nossa forma de trabalhar começa pela escuta, passa pelo diagnóstico
+            e reúne os conhecimentos necessários para orientar cada decisão.
           </p>
-
-          <dl className="numeros">
-            {numeros.map((n) => (
-              <div key={n.rotulo} className="numeros__item">
-                <dt>{n.rotulo}</dt>
-                <dd>
-                  <Contador valor={n.valor} />
-                </dd>
-              </div>
-            ))}
-          </dl>
-
-          <Botao variante="contorno" para="/clinica/" iconeFinal="seta">
-            Conheça a clínica
-          </Botao>
+          <p>
+            Escutar. Diagnosticar. Planejar. Cuidar.
+            Essa é a nossa forma de fazer Odontologia.
+          </p>
+          <div className="grupo-botoes">
+            <Botao variante="contorno" para="/clinica/" iconeFinal="seta">
+              Conheça a Bucalis
+            </Botao>
+          </div>
         </div>
-
         <figure className="sobre__visual">
           <div className="arco sobre__arco">
-            {clinica.fotoClinica ? (
-              <img
-                src={asset(clinica.fotoClinica)}
-                alt={clinica.textoAlternativoFotoClinica}
-                loading="lazy"
-              />
-            ) : (
-              <Azulejos colunas={4} linhas={6} semente={1960} paleta="misto" preencher />
-            )}
+            <img
+              src={asset(clinica.fotoClinica)}
+              alt={clinica.textoAlternativoFotoClinica}
+              loading="lazy"
+              decoding="async"
+              width="1280"
+              height="853"
+            />
           </div>
-          {!clinica.fotoClinica && (
-            <figcaption className="sobre__legenda">
-              Azulejos desenhados para a clínica, em homenagem ao método de Athos Bulcão: módulos simples,
-              assentados em posições livres.
-            </figcaption>
-          )}
+          <figcaption className="sobre__legenda">
+            Conversa, avaliação e planejamento fazem parte do cuidado.
+          </figcaption>
         </figure>
       </div>
     </section>

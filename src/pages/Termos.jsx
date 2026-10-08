@@ -31,9 +31,9 @@ export default function Termos() {
           <article className="texto-corrido">
             <h2>1. Sobre o site</h2>
             <p>
-              Este site é mantido por {legal.razaoSocial}, CNPJ {legal.cnpj}, e apresenta informações
-              institucionais sobre a {clinica.nome} e seus serviços. Ao usá-lo, você concorda com estes
-              termos.
+              Este é o site institucional da {clinica.nome}, criado para oferecer informações
+              sobre a clínica, seus tratamentos e canais de atendimento. Dados cadastrais
+              completos da pessoa jurídica serão acrescentados após confirmação.
             </p>
 
             <h2>2. Conteúdo informativo</h2>
@@ -58,8 +58,8 @@ export default function Termos() {
             <h2>5. Links e serviços de terceiros</h2>
             <p>
               O site pode exibir conteúdos e links de terceiros, como Google, Instagram, YouTube e WhatsApp.
-              Esses serviços têm termos e políticas próprios. Conteúdos de terceiros só são carregados com a
-              sua permissão — veja a <a href={href('/privacidade/')}>política de privacidade</a>.
+              Esses serviços têm termos e políticas próprios. Integrações opcionais só são carregadas com a
+              sua permissão. As fontes web estão explicadas na <a href={href('/privacidade/')}>política de privacidade</a>.
             </p>
 
             <h2>6. Disponibilidade</h2>
@@ -76,8 +76,7 @@ export default function Termos() {
 
             <h2>8. Contato</h2>
             <p>
-              Dúvidas sobre estes termos: <a href={`mailto:${contato.email}`}>{contato.email}</a> ou{' '}
-              {contato.telefoneExibicao}.
+              Dúvidas sobre estes termos: {contato.telefoneExibicao}.
             </p>
           </article>
         </div>

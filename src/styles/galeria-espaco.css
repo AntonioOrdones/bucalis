@@ -1,0 +1,89 @@
+/* Fotografias reais da Bucalis - layout responsivo e foco acessível. */
+@layer paginas {
+  .galeria-espaco { overflow: clip; }
+  .galeria-espaco__cabecalho {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--esp-4) var(--esp-6);
+    margin-bottom: var(--esp-6);
+  }
+  .galeria-espaco__cabecalho .secao__cabeca { margin-bottom: 0; }
+  .galeria-espaco__sobretitulo {
+    color: var(--bucalis-vinho);
+    font: 600 .85rem/1.6 var(--fonte-texto);
+    text-transform: uppercase;
+    letter-spacing: .14em;
+  }
+  .galeria-espaco__grade {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+    gap: clamp(.85rem, 2vw, 1.5rem);
+    padding: 0;
+    list-style: none;
+  }
+  .galeria-espaco__item { min-width: 0; }
+  .galeria-espaco__foto {
+    background: var(--branco);
+    border: 1px solid var(--bucalis-taupe);
+    border-radius: var(--raio-2);
+    overflow: hidden;
+    height: 100%;
+    box-shadow: var(--sombra-1);
+    display: flex;
+    flex-direction: column;
+  }
+  .galeria-espaco__abrir {
+    display: block;
+    overflow: hidden;
+    background: var(--bucalis-areia);
+    outline-offset: -5px;
+  }
+  .galeria-espaco__abrir img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    object-position: 50% 50%;
+    transition: transform var(--movimento-padrao);
+  }
+  .galeria-espaco__abrir:hover img,
+  .galeria-espaco__abrir:focus-visible img { transform: scale(1.035); }
+  .galeria-espaco__legenda {
+    padding: var(--esp-3) var(--esp-4) var(--esp-4);
+    display: grid;
+    gap: .2rem;
+  }
+  .galeria-espaco__legenda strong {
+    font-family: var(--fonte-texto);
+    color: var(--bucalis-cacau);
+    font-size: var(--fs-1);
+    font-weight: 600;
+  }
+  .galeria-espaco__categoria {
+    color: var(--bucalis-malva);
+    text-transform: uppercase;
+    font-size: .72rem;
+    font-weight: 600;
+    letter-spacing: .1em;
+  }
+  .galeria-espaco__nota {
+    margin-top: var(--esp-5);
+    color: var(--bucalis-malva);
+    font-size: var(--fs-0);
+    max-width: 70ch;
+  }
+  @media (max-width: 42rem) {
+    .galeria-espaco__grade { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .65rem; }
+    .galeria-espaco__legenda { padding: var(--esp-3); }
+    .galeria-espaco__legenda strong { font-size: .9rem; }
+    .galeria-espaco__cabecalho .botao { width: 100%; }
+  }
+  @media (max-width: 24rem) {
+    .galeria-espaco__grade { grid-template-columns: minmax(0, 1fr); }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .galeria-espaco__abrir img { transition: none; }
+}

@@ -4,8 +4,8 @@ import Botao from './Botao.jsx';
 
 /** Faixa de encerramento: convite para agendar, com WhatsApp e telefone. */
 export default function ChamadaFinal({
-  titulo = 'Agende sua avaliação',
-  texto = 'Conte o que você precisa: nossa equipe responde pelo WhatsApp com os horários disponíveis.',
+  titulo = 'Seu sorriso merece um plano pensado para você.',
+  texto = 'Agende uma avaliação e converse com nossa equipe sobre o cuidado indicado para sua saúde bucal.',
   mensagem,
 }) {
   return (

@@ -28,11 +28,11 @@ export default function Especialidades() {
         <div className="especialidades__cabeca">
           <span className="pilula">Especialidades</span>
           <h2 id="especialidades-titulo" className="secao__titulo">
-            Todas as especialidades em um só lugar
+            Conhecimento especializado. Olhar integrado.
           </h2>
           <p className="secao__apoio">
-            Da prevenção aos tratamentos mais complexos, cada caso é conduzido por um especialista — e
-            discutido em equipe quando envolve mais de uma área.
+            Diferentes áreas da Odontologia se conectam para que cada caso seja
+            avaliado e planejado conforme suas necessidades.
           </p>
           <Botao variante="bronze" para="/tratamentos/" iconeFinal="seta">
             Ver todos os tratamentos
