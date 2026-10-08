@@ -55,7 +55,7 @@
     transform: translateX(3px);
   }
 
-  /* Cacau: ação principal em fundo claro */
+  /* Vinho Bucalis: acao principal em fundo claro */
   .botao--primario {
     background: var(--cacau-700);
     color: #fff;
@@ -67,7 +67,7 @@
     text-decoration: none;
   }
 
-  /* Bronze polido: ação principal em fundo escuro */
+  /* Areia Bucalis: acao principal em fundo escuro */
   .botao--bronze {
     background: var(--metal-bronze);
     background-size: 220% 100%;
@@ -76,8 +76,8 @@
     font-weight: 600;
     box-shadow:
       inset 0 1px 0 rgb(255 255 255 / 0.55),
-      inset 0 -1px 0 rgb(74 37 15 / 0.35),
-      0 12px 32px -14px rgb(222 170 120 / 0.65);
+      inset 0 -1px 0 rgb(46 23 17 / 0.35),
+      0 12px 32px -14px rgb(162 156 138 / 0.65);
   }
 
   .botao--bronze:hover {
@@ -100,12 +100,12 @@
 
   /* Contorno claro, para fundos escuros */
   .botao--claro {
-    border-color: rgb(246 238 230 / 0.45);
+    border-color: rgb(237 227 215 / 0.45);
     color: var(--texto-claro);
   }
 
   .botao--claro:hover {
-    background: rgb(246 238 230 / 0.12);
+    background: rgb(237 227 215 / 0.12);
     border-color: var(--texto-claro);
     color: #fff;
     text-decoration: none;
@@ -139,7 +139,7 @@
   }
 
   html[data-contraste='alto'] .botao--bronze {
-    background: #f4e3cf;
+    background: #ede3d7;
     color: #000;
     border-color: #000;
   }

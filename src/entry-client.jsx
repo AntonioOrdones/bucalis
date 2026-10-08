@@ -1,5 +1,3 @@
-import '@fontsource-variable/jost';
-import '@fontsource-variable/source-sans-3';
 import './styles/main.css';
 
 import { StrictMode } from 'react';

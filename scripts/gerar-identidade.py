@@ -14,12 +14,12 @@ ROOT = Path(__file__).resolve().parents[1]
 PUBLIC = ROOT / "public"
 ICONS = PUBLIC / "icons"
 COLORS = {
-    "marrom": "#301710",
-    "tinta": "#241a16",
-    "areia": "#eee4d8",
-    "creme": "#f8f2ea",
-    "linha": "#c9b6a0",
-    "suave": "#695347",
+    "marrom": "#2e1711",
+    "tinta": "#481310",
+    "areia": "#ede3d7",
+    "creme": "#ede3d7",
+    "linha": "#a29c8a",
+    "suave": "#735e59",
 }
 LOGO_JSX = (ROOT / "src" / "components" / "Marca.jsx").read_text(encoding="utf-8")
 match = re.search(r"const assinatura\s*=\s*\[([\s\S]*?)\];", LOGO_JSX)

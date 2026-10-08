@@ -11,19 +11,20 @@ import { criarAleatorio } from '../lib/aleatorio.js';
  * desenham o mesmo painel (sem diferenças na hidratação).
  */
 
+/* Nomes das paletas preservados para compatibilidade com componentes antigos.
+ * Todas as variacoes agora utilizam exclusivamente as cores oficiais Bucalis. */
 const PALETAS = {
-  azul: { fundo: '#f7f8fb', figura: '#1f4e8c', rejunte: '#d9e1ec' },
-  bronze: { fundo: '#f8f2eb', figura: '#8d644b', rejunte: '#e8dccf' },
-  // Bronze com alguns azulejos azuis: a paleta da clínica com um aceno a Athos.
+  azul: { fundo: '#ede3d7', figura: '#735e59', rejunte: '#cacaca' },
+  bronze: { fundo: '#ede3d7', figura: '#7b7562', rejunte: '#a29c8a' },
   misto: {
-    fundo: '#f8f2eb',
-    figura: '#9a7056',
-    rejunte: '#eadfd3',
-    destaque: { fundo: '#f6f8fb', figura: '#1f4e8c' },
+    fundo: '#ede3d7',
+    figura: '#735e59',
+    rejunte: '#a29c8a',
+    destaque: { fundo: '#cacaca', figura: '#481310' },
     chance: 0.22,
   },
-  escuro: { fundo: '#341a0d', figura: '#a87d5c', rejunte: '#241008' },
-  noite: { fundo: '#173f78', figura: '#e9eef6', rejunte: '#12335f' },
+  escuro: { fundo: '#2e1711', figura: '#a29c8a', rejunte: '#481310' },
+  noite: { fundo: '#481310', figura: '#ede3d7', rejunte: '#2e1711' },
 };
 
 // As figuras usam currentColor: a cor de cada peça é definida na hora de assentar.

@@ -1,2 +1,94 @@
-:root{color-scheme:light;--branco:#fff;--marmore-50:#fdfbf9;--marmore-100:#eee4d8;--marmore-200:#d9c7b0;--linha:#cbb7a0;--jacaranda-950:#20100b;--jacaranda-900:#301710;--jacaranda-800:#3b2119;--cacau-800:#3d241a;--cacau-700:#513228;--cacau-600:#6a4635;--bronze-100:#f0e5d6;--bronze-200:#dfcbb5;--bronze-300:#bca88c;--bronze-500:#928574;--bronze-600:#706755;--azulejo-100:#edf4fb;--azulejo-600:#1f4e8c;--azulejo-700:#173c71;--tinta:#2b211c;--texto:#514841;--texto-suave:#726961;--texto-claro:#fff9f1;--texto-claro-suave:#e5d8c8;--whatsapp:#168865;--whatsapp-escuro:#106e54;--metal-bronze:linear-gradient(115deg,#98734f 0%,#e8cba0 26%,#bf925e 49%,#f2d7a8 70%,#a7794d 100%);--fonte-titulo:'Jost Variable','Jost','Trebuchet MS',sans-serif;--fonte-texto:'Source Sans 3 Variable','Source Sans 3',Arial,sans-serif;--fs-0:.875rem;--fs-1:1rem;--fs-2:1.125rem;--fs-3:1.4rem;--fs-4:1.75rem;--fs-5:clamp(2rem,1.6rem + 1.5vw,2.65rem);--fs-6:clamp(2.4rem,1.8rem + 2.8vw,4.25rem);--fs-7:clamp(3rem,2rem + 4vw,5rem);--entrelinha:1.65;--entrelinha-titulo:1.14;--esp-1:.25rem;--esp-2:.5rem;--esp-3:.75rem;--esp-4:1rem;--esp-5:1.5rem;--esp-6:2rem;--esp-7:3rem;--esp-8:4rem;--secao:clamp(4rem,2.4rem + 5vw,7rem);--altura-cabecalho:5.5rem;--raio-1:.5rem;--raio-2:1rem;--raio-3:1.5rem;--raio-pilula:999px;--raio-arco:48% 48% 0 0/20% 20% 0 0;--transicao:200ms ease;--sombra-1:0 12px 35px -25px rgb(43 20 10/.35);--sombra-2:0 22px 60px -25px rgb(43 20 10/.35)}
-@media(max-width:40rem){:root{--altura-cabecalho:4.75rem}}html[data-fonte='1']{font-size:112.5%}html[data-fonte='2']{font-size:125%}html[data-contraste='alto']{--tinta:#111;--texto:#151515;--texto-suave:#292929;--linha:#555;--cacau-700:#48200d;--azulejo-600:#143e7b}
+/* Identidade oficial Bucalis (manual visual, outubro de 2026).
+   Sete tons oficiais; branco como neutral funcional e transparencia da mesma paleta.
+   Os nomes legados abaixo preservam compatibilidade com todos os componentes. */
+:root {
+  color-scheme: light;
+  --bucalis-cinza: #cacaca;
+  --bucalis-areia: #ede3d7;
+  --bucalis-taupe: #a29c8a;
+  --bucalis-oliva: #7b7562;
+  --bucalis-malva: #735e59;
+  --bucalis-vinho: #481310;
+  --bucalis-cacau: #2e1711;
+
+  --branco: #ffffff;
+  --marmore-50: var(--bucalis-areia);
+  --marmore-100: var(--bucalis-areia);
+  --marmore-200: var(--bucalis-cinza);
+  --linha: var(--bucalis-taupe);
+  --jacaranda-950: var(--bucalis-cacau);
+  --jacaranda-900: var(--bucalis-cacau);
+  --jacaranda-800: var(--bucalis-vinho);
+  --cacau-800: var(--bucalis-cacau);
+  --cacau-700: var(--bucalis-vinho);
+  --cacau-600: var(--bucalis-malva);
+  --bronze-100: var(--bucalis-areia);
+  --bronze-200: var(--bucalis-cinza);
+  --bronze-300: var(--bucalis-taupe);
+  --bronze-500: var(--bucalis-oliva);
+  --bronze-600: var(--bucalis-vinho);
+  --azulejo-100: var(--bucalis-areia);
+  --azulejo-600: var(--bucalis-vinho);
+  --azulejo-700: var(--bucalis-cacau);
+  --tinta: var(--bucalis-cacau);
+  --texto: var(--bucalis-vinho);
+  --texto-suave: var(--bucalis-malva);
+  --texto-claro: var(--bucalis-areia);
+  --texto-claro-suave: var(--bucalis-cinza);
+  --whatsapp: var(--bucalis-vinho);
+  --whatsapp-escuro: var(--bucalis-cacau);
+  --metal-bronze: linear-gradient(110deg, #ede3d7 0%, #cacaca 48%, #a29c8a 100%);
+
+  /* Poppins e a familia funcional; os demais nomes sao os do manual.
+     As familias comerciais aparecem com alternativas serifadas abertas
+     ate a clinica fornecer os arquivos completos e licenciados. */
+  --fonte-texto: 'Poppins', 'Segoe UI', Arial, sans-serif;
+  --fonte-titulo: 'Poppins', 'Segoe UI', Arial, sans-serif;
+  --fonte-exibicao: 'Boston Angel', 'BostonAngel', 'Bodoni Moda', Georgia, serif;
+  --fonte-higuen: 'Higuen Elegant Serif', 'Higuen', 'Cormorant Garamond', Georgia, serif;
+  --fonte-tan: 'TAN Garland', 'TANGARLAND', 'Cormorant Garamond', Georgia, serif;
+  --fonte-assinatura: 'Burgues Script', 'Great Vibes', cursive;
+
+  --fs-0: .875rem;
+  --fs-1: 1rem;
+  --fs-2: 1.0625rem;
+  --fs-3: 1.4rem;
+  --fs-4: 1.75rem;
+  --fs-5: clamp(2rem, 1.65rem + 1.4vw, 2.7rem);
+  --fs-6: clamp(2.5rem, 1.9rem + 2.8vw, 4.4rem);
+  --fs-7: clamp(3rem, 2rem + 4vw, 5.4rem);
+  --entrelinha: 1.75;
+  --entrelinha-titulo: 1.1;
+  --esp-1: .25rem;
+  --esp-2: .5rem;
+  --esp-3: .75rem;
+  --esp-4: 1rem;
+  --esp-5: 1.5rem;
+  --esp-6: 2rem;
+  --esp-7: 3rem;
+  --esp-8: 4rem;
+  --secao: clamp(4rem, 2.4rem + 5vw, 7rem);
+  --altura-cabecalho: 5.5rem;
+  --raio-1: .5rem;
+  --raio-2: 1rem;
+  --raio-3: 1.5rem;
+  --raio-pilula: 999px;
+  --raio-arco: 48% 48% 0 0 / 20% 20% 0 0;
+  --transicao: 200ms ease;
+  --sombra-1: 0 12px 35px -25px rgb(46 23 17 / .34);
+  --sombra-2: 0 22px 60px -25px rgb(46 23 17 / .34);
+}
+@media (max-width: 40rem) {
+  :root { --altura-cabecalho: 4.75rem; }
+}
+html[data-fonte='1'] { font-size: 112.5%; }
+html[data-fonte='2'] { font-size: 125%; }
+html[data-contraste='alto'] {
+  --tinta: #000;
+  --texto: #000;
+  --texto-suave: #000;
+  --linha: #2e1711;
+  --cacau-700: #2e1711;
+  --azulejo-600: #2e1711;
+  --azulejo-700: #2e1711;
+}

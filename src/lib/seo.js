@@ -50,7 +50,7 @@ export function renderizarHead(meta = {}) {
     `<meta property="og:image:alt" content="${escaparHtml(clinica.nome)}">`,
     '<meta name="twitter:card" content="summary_large_image">',
     `<meta name="twitter:image" content="${imagem}">`,
-    '<meta name="theme-color" content="#301710">',
+    '<meta name="theme-color" content="#2e1711">',
     `<link rel="icon" href="${asset('/favicon-bucalis.svg')}" type="image/svg+xml">`,
     `<link rel="icon" href="${asset('/icons/favicon-bucalis-32.png')}" sizes="32x32" type="image/png">`,
     `<link rel="apple-touch-icon" href="${asset('/icons/apple-bucalis-touch-icon.png')}">`,

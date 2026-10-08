@@ -32,8 +32,8 @@ export function manifestoWeb() {
     start_url: BASE,
     scope: BASE,
     display: 'standalone',
-    background_color: '#ffffff',
-    theme_color: '#301710',
+    background_color: '#ede3d7',
+    theme_color: '#2e1711',
     icons: [
       { src: `${BASE}icons/icon-bucalis-192.png`, sizes: '192x192', type: 'image/png' },
       { src: `${BASE}icons/icon-bucalis-512.png`, sizes: '512x512', type: 'image/png' },
