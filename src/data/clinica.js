@@ -14,12 +14,12 @@
 
 export const clinica = {
   /* ── Identidade ─────────────────────────────────────────────────────── */
-  nome: 'Alvorada Odontologia', // ⚠️ TROCAR — nome provisório
-  nomeCurto: 'Alvorada', // ⚠️ TROCAR — usado na marca do cabeçalho
+  nome: 'Bucalis Odontologia Especializada',
+  nomeCurto: 'Bucalis',
   complementoMarca: 'Odontologia especializada',
   // Descrição padrão (Google, redes sociais). Até ~155 caracteres.
   descricao:
-    'Clínica odontológica na Asa Sul, em Brasília, com todas as especialidades em um só lugar: implantes, ortodontia, estética, odontopediatria e mais.',
+    'Bucalis Odontologia Especializada: atendimento odontológico e cuidados com a saúde bucal. Conheça os serviços e entre em contato para saber mais.',
   anoFundacao: 2008, // ⚠️ TROCAR — calcula os "anos de experiência"
   consultorios: 6, // ⚠️ TROCAR
 
@@ -118,7 +118,7 @@ export const clinica = {
 
   /* ── Redes e Google ─────────────────────────────────────────────────── */
   redes: {
-    instagram: 'seu.perfil', // ⚠️ TROCAR — só o @, sem a arroba
+    instagram: 'bucalis.oficial',
     facebook: '', // URL completa (opcional)
     youtube: '', // URL completa do canal (opcional)
   },
@@ -162,7 +162,7 @@ export const clinica = {
 
   /* ── Endereço público do site ───────────────────────────────────────── */
   // Usado só em builds locais. No GitHub Actions a URL é detectada sozinha.
-  urlPadrao: 'https://seu-usuario.github.io/seu-repositorio', // ⚠️ TROCAR se publicar fora do Actions
+  urlPadrao: 'https://antonioordones.github.io/site2',
 };
 
 /** Anos de experiência calculados a partir do ano de fundação. */
