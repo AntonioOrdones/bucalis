@@ -79,6 +79,10 @@ jobs:
             echo "O site estatico da main ja esta atualizado."
           else
             git commit -m "publish: atualizar HTML compilado na main [skip ci]"
+            # Uma alteracao pode chegar enquanto a compilacao esta rodando.
+            # Nao sobrescreve outros commits: rebase com a main atual.
+            git fetch origin main
+            git rebase origin/main
             git push origin HEAD:main
 
             # Commits do GITHUB_TOKEN nao disparam build do Pages por branch.
