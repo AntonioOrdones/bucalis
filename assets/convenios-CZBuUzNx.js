@@ -1,0 +1,1 @@
+var e=[`Amil Dental`,`Bradesco Dental`,`E-VIDA`,`GEAP Saúde`,`MetLife Odonto`,`Odontoprev`,`Plan-Assiste (MPU)`,`Porto Seguro Odonto`,`Postal Saúde`,`Pró-Ser (STJ)`,`Pró-Social (TRF 1ª Região)`,`Saúde BRB`,`Saúde Caixa`,`SIS (Senado Federal)`,`STF-Med`,`SulAmérica Odonto`,`TRE Saúde`,`TRT Saúde`,`Unimed Odonto`];export{e as t};
