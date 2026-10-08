@@ -1,0 +1,612 @@
+/**
+ * TRATAMENTOS
+ * Cada item gera um card na home, um item no menu e uma página própria em
+ * /tratamentos/<slug>/. Para retirar um tratamento, apague o objeto inteiro
+ * (e o slug dele em `relacionados` de outros itens e em equipe.js).
+ *
+ * Redação alinhada ao Código de Ética Odontológica: conteúdo informativo,
+ * sem promessa de resultado, sem preços e sem termos sensacionalistas.
+ * Revise o texto com o responsável técnico antes de publicar.
+ */
+
+export const tratamentos = [
+  {
+    slug: 'clinica-geral-e-prevencao',
+    nome: 'Clínica geral e prevenção',
+    mensagemWhatsApp: 'Olá! Vim pelo site e gostaria de agendar uma consulta de rotina.',
+    icone: 'prevencao',
+    resumo:
+      'Consultas de rotina, limpeza profissional e restaurações para manter a boca saudável e evitar tratamentos maiores.',
+    descricaoSeo:
+      'Check-up, limpeza profissional, restaurações e orientação de higiene em Brasília. A porta de entrada para cuidar do sorriso com prevenção.',
+    introducao: [
+      'A maior parte dos problemas bucais começa de forma silenciosa. Nas consultas de rotina, o cirurgião-dentista avalia dentes, gengivas, mordida e os tecidos da boca, identifica cáries e alterações ainda no início e orienta os cuidados de casa.',
+      'É também a porta de entrada da clínica: quando algo exige um especialista, você é encaminhado dentro da própria equipe, com o histórico já registrado.',
+    ],
+    indicacoes: [
+      'Check-up periódico, em geral a cada seis meses',
+      'Limpeza profissional e remoção de tártaro',
+      'Cáries e restaurações fraturadas ou com infiltração',
+      'Sensibilidade nos dentes',
+      'Mau hálito persistente',
+      'Orientação de higiene para todas as idades',
+    ],
+    etapas: [
+      {
+        titulo: 'Conversa inicial',
+        texto:
+          'Você conta suas queixas e expectativas, e registramos medicamentos em uso e condições de saúde relevantes.',
+      },
+      {
+        titulo: 'Exame clínico',
+        texto:
+          'Avaliação de dentes, gengivas, língua, bochechas e articulação. Radiografias são solicitadas quando necessárias.',
+      },
+      {
+        titulo: 'Limpeza e cuidados',
+        texto: 'Remoção de placa e tártaro, polimento e, quando indicado, aplicação de flúor.',
+      },
+      {
+        titulo: 'Plano e retorno',
+        texto:
+          'Se houver tratamento a fazer, você recebe um plano por escrito, e definimos juntos o intervalo do próximo retorno.',
+      },
+    ],
+    faq: [
+      {
+        pergunta: 'De quanto em quanto tempo devo ir ao dentista?',
+        resposta:
+          'Para a maioria das pessoas, consultas a cada seis meses são suficientes. Quem tem doença na gengiva, usa aparelho ortodôntico ou tem maior risco de cárie pode precisar de intervalos menores — o ideal é definido na avaliação.',
+      },
+      {
+        pergunta: 'A limpeza desgasta os dentes?',
+        resposta:
+          'Não. A limpeza profissional remove placa e tártaro com instrumentos e pastas próprios, sem desgastar o esmalte saudável. Pode haver sensibilidade passageira em quem tinha muito tártaro acumulado.',
+      },
+      {
+        pergunta: 'Restauração de resina escurece?',
+        resposta:
+          'As resinas atuais são estáveis, mas podem manchar com o tempo, principalmente com café, chá, vinho e cigarro. As revisões periódicas permitem polir ou reparar antes que o problema aumente.',
+      },
+    ],
+    relacionados: ['periodontia', 'estetica-dental', 'odontopediatria'],
+  },
+  {
+    slug: 'implantodontia',
+    nome: 'Implantodontia',
+    nomeNaFrase: 'implante dentário',
+    icone: 'implante',
+    resumo:
+      'Reposição de dentes perdidos com implantes, planejada a partir de exames de imagem para devolver função e estética.',
+    descricaoSeo:
+      'Implantes dentários em Brasília: avaliação com tomografia, planejamento individual, enxertos quando necessários e prótese sobre implante.',
+    introducao: [
+      'O implante dentário é um pino de titânio ou de zircônia instalado no osso, que faz o papel da raiz do dente perdido. Sobre ele é fixada uma coroa, uma ponte ou uma prótese completa.',
+      'O planejamento começa por exames de imagem, como a tomografia, que mostram a quantidade e a qualidade do osso. Quando falta osso, pode ser indicado um enxerto antes ou durante a instalação.',
+    ],
+    indicacoes: [
+      'Perda de um ou mais dentes',
+      'Substituição de pontes fixas ou de próteses removíveis',
+      'Dentaduras que se movimentam ou incomodam',
+      'Dentes que precisam ser extraídos e substituídos',
+    ],
+    etapas: [
+      {
+        titulo: 'Avaliação e exames',
+        texto: 'Exame clínico, tomografia e, quando necessário, exames de saúde geral.',
+      },
+      {
+        titulo: 'Planejamento',
+        texto:
+          'Definição do número e da posição dos implantes e do tipo de prótese, muitas vezes com apoio de planejamento digital.',
+      },
+      {
+        titulo: 'Cirurgia',
+        texto:
+          'Instalação do implante com anestesia local, em ambiente preparado para procedimentos cirúrgicos.',
+      },
+      {
+        titulo: 'Osseointegração',
+        texto:
+          'Período em que o osso se une ao implante, geralmente de alguns meses. Em casos selecionados, é possível instalar um dente provisório logo em seguida.',
+      },
+      {
+        titulo: 'Prótese definitiva',
+        texto: 'Confecção e instalação da coroa ou da prótese final, seguidas de consultas de manutenção.',
+      },
+    ],
+    faq: [
+      {
+        pergunta: 'Colocar implante dói?',
+        resposta:
+          'A cirurgia é feita com anestesia local, e a maioria dos pacientes relata desconforto leve nos dias seguintes, controlado com a medicação prescrita. O pós-operatório varia conforme o caso e é explicado em detalhe na consulta.',
+      },
+      {
+        pergunta: 'Quanto tempo dura um implante?',
+        resposta:
+          'Com boa higiene, consultas de manutenção e controle de fatores como tabagismo e diabetes, os implantes costumam ter longa durabilidade. A prótese sobre ele pode precisar de ajustes ou de troca ao longo dos anos.',
+      },
+      {
+        pergunta: 'Qualquer pessoa pode fazer implante?',
+        resposta:
+          'A maioria dos adultos pode, mas algumas condições exigem cuidados especiais ou adiamento, como diabetes descompensado, uso de certos medicamentos para os ossos, radioterapia na região e tabagismo intenso. A indicação é sempre individual.',
+      },
+      {
+        pergunta: 'Em quanto tempo o dente fica pronto?',
+        resposta:
+          'Depende da quantidade de osso, da necessidade de enxerto e da região da boca. Na avaliação, você recebe uma estimativa de prazo para cada etapa.',
+      },
+    ],
+    relacionados: ['protese-dentaria', 'cirurgia-bucomaxilofacial', 'periodontia'],
+  },
+  {
+    slug: 'ortodontia',
+    nome: 'Ortodontia',
+    icone: 'ortodontia',
+    resumo:
+      'Aparelhos fixos e alinhadores transparentes para alinhar os dentes e corrigir a mordida de crianças, jovens e adultos.',
+    descricaoSeo:
+      'Ortodontia em Brasília: aparelhos fixos, alinhadores transparentes e ortodontia preventiva para crianças. Diagnóstico com documentação completa.',
+    introducao: [
+      'A ortodontia corrige a posição dos dentes e a relação entre as arcadas. Dentes alinhados e uma mordida equilibrada facilitam a higiene, distribuem melhor as forças da mastigação e contribuem para a estética do sorriso.',
+      'Há diferentes recursos — aparelhos fixos metálicos ou estéticos, alinhadores transparentes e aparelhos ortopédicos para crianças. A escolha depende do diagnóstico, da idade e da rotina de cada paciente.',
+    ],
+    indicacoes: [
+      'Dentes tortos, apinhados ou com espaços',
+      'Mordida cruzada, aberta ou profunda',
+      'Crianças com hábitos prolongados de chupeta ou de sucção do dedo',
+      'Preparo para implantes, próteses ou cirurgia ortognática',
+      'Adultos que nunca trataram ou que tiveram recidiva',
+    ],
+    etapas: [
+      {
+        titulo: 'Documentação',
+        texto:
+          'Radiografias, fotografias e modelos dos dentes — ou escaneamento digital — para o diagnóstico.',
+      },
+      {
+        titulo: 'Plano de tratamento',
+        texto: 'Apresentação das opções de aparelho, do tempo estimado e da frequência das consultas.',
+      },
+      {
+        titulo: 'Instalação e ajustes',
+        texto: 'Instalação do aparelho e consultas periódicas de ativação ou de troca dos alinhadores.',
+      },
+      {
+        titulo: 'Contenção',
+        texto: 'Ao final, uma contenção fixa ou removível mantém os dentes na nova posição.',
+      },
+    ],
+    faq: [
+      {
+        pergunta: 'Qual é a melhor idade para usar aparelho?',
+        resposta:
+          'Não há idade limite. Recomenda-se uma primeira avaliação ortodôntica por volta dos 7 anos, quando alguns problemas de crescimento podem ser corrigidos mais cedo. Adultos também podem tratar.',
+      },
+      {
+        pergunta: 'Alinhador transparente serve para qualquer caso?',
+        resposta:
+          'Os alinhadores resolvem grande parte dos casos, mas alguns problemas respondem melhor ao aparelho fixo ou à combinação de recursos. Eles exigem uso disciplinado, cerca de 22 horas por dia.',
+      },
+      {
+        pergunta: 'Quanto tempo dura o tratamento?',
+        resposta:
+          'Em geral, de um a três anos, conforme a complexidade do caso e a colaboração do paciente. A estimativa é apresentada no plano de tratamento.',
+      },
+    ],
+    relacionados: ['odontopediatria', 'dtm-e-dor-orofacial', 'estetica-dental'],
+  },
+  {
+    slug: 'odontopediatria',
+    nome: 'Odontopediatria',
+    icone: 'crianca',
+    resumo:
+      'Atendimento para bebês, crianças e adolescentes, com foco em prevenção e em experiências tranquilas no consultório.',
+    descricaoSeo:
+      'Dentista para bebês, crianças e adolescentes em Brasília. Prevenção de cáries, selantes, flúor e acolhimento no ritmo de cada criança.',
+    introducao: [
+      'O odontopediatra acompanha a saúde bucal desde o nascimento dos primeiros dentes até a adolescência. Além de tratar, orienta a família sobre alimentação, escovação, uso de flúor e hábitos que influenciam o crescimento da face.',
+      'Cada consulta é adaptada à idade e ao jeito da criança, com tempo para ela conhecer o ambiente e criar confiança.',
+    ],
+    indicacoes: [
+      'Primeira consulta do bebê, de preferência antes do primeiro aniversário',
+      'Prevenção e tratamento de cáries',
+      'Selantes e aplicação de flúor',
+      'Quedas e pancadas nos dentes',
+      'Acompanhamento da troca dos dentes de leite',
+    ],
+    etapas: [
+      {
+        titulo: 'Acolhimento',
+        texto: 'Apresentamos o consultório e os instrumentos de forma lúdica, no ritmo da criança.',
+      },
+      {
+        titulo: 'Avaliação',
+        texto:
+          'Exame dos dentes, da gengiva e da mordida, e conversa com os responsáveis sobre rotina e alimentação.',
+      },
+      {
+        titulo: 'Prevenção e tratamento',
+        texto: 'Limpeza, flúor, selantes ou restaurações, sempre explicados à criança e à família.',
+      },
+      {
+        titulo: 'Acompanhamento',
+        texto: 'Retornos periódicos para acompanhar o crescimento e a troca dos dentes.',
+      },
+    ],
+    faq: [
+      {
+        pergunta: 'Quando levar meu filho ao dentista pela primeira vez?',
+        resposta:
+          'O ideal é logo após o nascimento do primeiro dente e antes de a criança completar um ano. Nessa consulta, a família recebe orientações sobre higiene, alimentação e uso de flúor adequados à idade.',
+      },
+      {
+        pergunta: 'Dente de leite precisa ser tratado?',
+        resposta:
+          'Sim. Os dentes de leite são importantes para a mastigação, a fala e para guardar espaço para os permanentes. Cáries sem tratamento podem causar dor, infecção e afetar os dentes que ainda vão nascer.',
+      },
+      {
+        pergunta: 'O que fazer se a criança bater o dente?',
+        resposta:
+          'Procure atendimento o quanto antes. Se um dente permanente sair inteiro, segure-o pela coroa, sem esfregar a raiz, e traga-o imerso em leite ou soro fisiológico. Dentes de leite não devem ser recolocados no lugar.',
+      },
+    ],
+    relacionados: ['clinica-geral-e-prevencao', 'ortodontia', 'estetica-dental'],
+  },
+  {
+    slug: 'estetica-dental',
+    nome: 'Estética dental',
+    icone: 'estetica',
+    resumo:
+      'Clareamento, facetas, lentes de contato dental e restaurações estéticas planejados para um resultado natural.',
+    descricaoSeo:
+      'Clareamento, facetas, lentes de contato dental e restaurações estéticas em Brasília, com planejamento do sorriso e foco em naturalidade.',
+    introducao: [
+      'A odontologia estética cuida da cor, da forma e da proporção dos dentes, sempre a partir de uma boca saudável. O objetivo é um sorriso em harmonia com o rosto, e não um padrão igual para todos.',
+      'Antes de qualquer procedimento, avaliamos gengivas, mordida e restaurações existentes. Em muitos casos, o planejamento inclui fotografias e simulações para você visualizar a proposta antes de começar.',
+    ],
+    indicacoes: [
+      'Dentes escurecidos ou manchados',
+      'Dentes com forma, tamanho ou proporção desarmônicos',
+      'Pequenas fraturas e desgastes',
+      'Espaços entre os dentes',
+      'Restaurações antigas e escurecidas',
+      'Sorriso com muita gengiva aparente, em conjunto com a periodontia',
+    ],
+    etapas: [
+      {
+        titulo: 'Avaliação do sorriso',
+        texto: 'Exame clínico, fotografias e uma conversa sobre o que incomoda você.',
+      },
+      {
+        titulo: 'Planejamento',
+        texto:
+          'Simulação da proposta, digital ou em modelo, e escolha dos materiais: resina, porcelana ou clareamento.',
+      },
+      {
+        titulo: 'Preparo',
+        texto: 'Tratamento de cáries e da gengiva, quando necessário, antes da etapa estética.',
+      },
+      {
+        titulo: 'Execução e ajustes',
+        texto: 'Realização do procedimento e ajustes finos de forma e brilho, com orientações de cuidado.',
+      },
+    ],
+    faq: [
+      {
+        pergunta: 'Clareamento enfraquece os dentes?',
+        resposta:
+          'Quando indicado e acompanhado por cirurgião-dentista, o clareamento não enfraquece os dentes. Sensibilidade temporária é comum e costuma ser controlada com ajustes no protocolo.',
+      },
+      {
+        pergunta: 'Qual a diferença entre faceta e lente de contato dental?',
+        resposta:
+          'Ambas são lâminas que recobrem a face visível do dente. As lentes são mais finas e, em alguns casos, exigem pouco ou nenhum desgaste; as facetas são mais espessas e corrigem alterações maiores. A indicação depende de cada caso.',
+      },
+      {
+        pergunta: 'Facetas e lentes duram para sempre?',
+        resposta:
+          'Nenhum tratamento é permanente. A durabilidade depende do material, da mordida, de hábitos como ranger os dentes e dos cuidados de higiene e manutenção.',
+      },
+    ],
+    relacionados: ['clinica-geral-e-prevencao', 'periodontia', 'ortodontia'],
+  },
+  {
+    slug: 'endodontia',
+    nome: 'Endodontia',
+    nomeCompleto: 'Endodontia (tratamento de canal)',
+    nomeNaFrase: 'tratamento de canal',
+    icone: 'canal',
+    resumo:
+      'Tratamento de canal para preservar dentes com inflamação ou infecção na polpa, feito com anestesia e técnicas atuais.',
+    descricaoSeo:
+      'Tratamento de canal (endodontia) em Brasília: diagnóstico preciso, anestesia local, isolamento absoluto e restauração para preservar o dente.',
+    introducao: [
+      'Dentro de cada dente existe a polpa, um tecido com nervos e vasos. Quando ela inflama ou infecciona — por cárie profunda, fratura ou trauma —, o tratamento de canal remove esse tecido, limpa e sela o interior do dente, preservando-o na boca.',
+      'O procedimento é feito com anestesia local e, sempre que possível, com isolamento absoluto, que protege o dente de contaminação durante o tratamento.',
+    ],
+    indicacoes: [
+      'Dor espontânea ou que persiste depois de alimentos quentes ou frios',
+      'Inchaço na gengiva ou no rosto',
+      'Dente escurecido após uma pancada',
+      'Cárie profunda que atinge a polpa',
+      'Retratamento de canais que voltaram a apresentar problema',
+    ],
+    etapas: [
+      {
+        titulo: 'Diagnóstico',
+        texto: 'Exame clínico, testes e radiografias para confirmar a necessidade do tratamento.',
+      },
+      {
+        titulo: 'Anestesia e isolamento',
+        texto: 'Anestesia local e isolamento do dente com lençol de borracha.',
+      },
+      {
+        titulo: 'Limpeza dos canais',
+        texto: 'Remoção da polpa e desinfecção e modelagem dos canais.',
+      },
+      {
+        titulo: 'Obturação',
+        texto: 'Preenchimento e vedação dos canais.',
+      },
+      {
+        titulo: 'Restauração',
+        texto:
+          'O dente recebe uma restauração ou coroa para voltar à função — etapa essencial para o sucesso do tratamento.',
+      },
+    ],
+    faq: [
+      {
+        pergunta: 'Tratamento de canal dói?',
+        resposta:
+          'O procedimento é realizado com anestesia local, para que você fique confortável. Depois, um desconforto leve por alguns dias é comum e costuma ceder com a medicação orientada.',
+      },
+      {
+        pergunta: 'Quantas sessões são necessárias?',
+        resposta:
+          'Muitos tratamentos são concluídos em uma ou duas sessões. Casos com infecção extensa ou retratamentos podem exigir mais.',
+      },
+      {
+        pergunta: 'O dente fica fraco depois do canal?',
+        resposta:
+          'O dente tratado pode ficar mais sujeito a fraturas, principalmente se perdeu muita estrutura. Por isso, a restauração adequada — às vezes uma coroa — faz parte do tratamento.',
+      },
+    ],
+    relacionados: ['clinica-geral-e-prevencao', 'protese-dentaria', 'cirurgia-bucomaxilofacial'],
+  },
+  {
+    slug: 'periodontia',
+    nome: 'Periodontia',
+    icone: 'gengiva',
+    resumo:
+      'Prevenção e tratamento das doenças da gengiva e do osso que sustentam os dentes, como gengivite e periodontite.',
+    descricaoSeo:
+      'Tratamento de gengivite e periodontite em Brasília: avaliação periodontal, raspagem, cirurgias da gengiva e manutenção periódica.',
+    introducao: [
+      'A periodontia cuida dos tecidos que sustentam os dentes: gengiva, osso e ligamentos. A gengivite, inflamação da gengiva, é reversível; sem tratamento, pode evoluir para periodontite, que destrói o osso e é uma das principais causas de perda de dentes em adultos.',
+      'A saúde da gengiva também se relaciona com a saúde geral — há associação, por exemplo, entre periodontite e diabetes descompensado. Por isso, o tratamento inclui orientação e manutenção periódica.',
+    ],
+    indicacoes: [
+      'Gengiva que sangra ao escovar ou ao usar o fio dental',
+      'Gengiva inchada, avermelhada ou retraída',
+      'Mau hálito persistente',
+      'Dentes com mobilidade ou que mudaram de posição',
+      'Preparo da gengiva para implantes, próteses e tratamentos estéticos',
+    ],
+    etapas: [
+      {
+        titulo: 'Avaliação periodontal',
+        texto: 'Medição da profundidade ao redor de cada dente e radiografias.',
+      },
+      {
+        titulo: 'Tratamento básico',
+        texto:
+          'Raspagem e alisamento das raízes para remover placa e tártaro abaixo da gengiva, com anestesia local quando necessário.',
+      },
+      {
+        titulo: 'Reavaliação',
+        texto: 'Conferência da resposta dos tecidos e, em alguns casos, indicação de cirurgia periodontal.',
+      },
+      {
+        titulo: 'Manutenção',
+        texto: 'Consultas periódicas para manter a doença sob controle.',
+      },
+    ],
+    faq: [
+      {
+        pergunta: 'Sangramento na gengiva é normal?',
+        resposta:
+          'Não. Sangrar ao escovar ou ao passar o fio é o sinal mais comum de inflamação na gengiva e merece avaliação.',
+      },
+      {
+        pergunta: 'Periodontite tem cura?',
+        resposta:
+          'A periodontite pode ser controlada com tratamento e manutenção regular. O osso perdido não volta sozinho, mas é possível interromper a progressão e, em alguns casos, regenerar parte dos tecidos.',
+      },
+      {
+        pergunta: 'A raspagem amolece os dentes?',
+        resposta:
+          'Não. A raspagem remove o tártaro que inflamava a gengiva. Às vezes, ao desinflamar, a gengiva se retrai um pouco e revela uma perda óssea que já existia.',
+      },
+    ],
+    relacionados: ['implantodontia', 'clinica-geral-e-prevencao', 'estetica-dental'],
+  },
+  {
+    slug: 'protese-dentaria',
+    nome: 'Prótese dentária',
+    icone: 'protese',
+    resumo:
+      'Coroas, pontes e próteses fixas ou removíveis para reconstruir dentes desgastados ou substituir os que foram perdidos.',
+    descricaoSeo:
+      'Coroas, pontes, próteses sobre implantes e próteses removíveis em Brasília, com materiais cerâmicos e planejamento individual.',
+    introducao: [
+      'A prótese dentária reconstrói dentes muito danificados e substitui dentes ausentes, devolvendo mastigação, fala e estética. Ela pode ser fixa — como coroas e pontes, inclusive sobre implantes — ou removível.',
+      'Materiais como as cerâmicas e a zircônia permitem resultados resistentes e de aparência natural. A escolha considera a região da boca, a mordida e as expectativas de cada paciente.',
+    ],
+    indicacoes: [
+      'Dentes com grande destruição ou após tratamento de canal',
+      'Ausência de um ou mais dentes',
+      'Desgastes severos por bruxismo ou pelo tempo',
+      'Dentaduras antigas, folgadas ou desconfortáveis',
+    ],
+    etapas: [
+      {
+        titulo: 'Avaliação',
+        texto: 'Exame dos dentes, das gengivas e da mordida, com radiografias e fotografias.',
+      },
+      {
+        titulo: 'Preparo e moldagem',
+        texto: 'Preparo dos dentes e moldagem convencional ou escaneamento digital.',
+      },
+      {
+        titulo: 'Provas',
+        texto: 'Provas de estrutura, cor e forma, com ajustes antes da finalização.',
+      },
+      {
+        titulo: 'Instalação e manutenção',
+        texto: 'Instalação da prótese e orientação de higiene, com revisões periódicas.',
+      },
+    ],
+    faq: [
+      {
+        pergunta: 'Prótese fixa ou removível: qual escolher?',
+        resposta:
+          'Depende do número de dentes ausentes, da quantidade de osso, da saúde dos dentes vizinhos e do planejamento do paciente. Na consulta, apresentamos as alternativas possíveis para o seu caso.',
+      },
+      {
+        pergunta: 'Coroa de porcelana escurece?',
+        resposta:
+          'As cerâmicas não mudam de cor com o tempo. O que pode ocorrer é uma retração da gengiva ao redor, expondo a borda da coroa — por isso as revisões periódicas são importantes.',
+      },
+      {
+        pergunta: 'Quanto tempo leva para a prótese ficar pronta?',
+        resposta:
+          'Coroas e pontes costumam levar algumas semanas, entre preparo, provas e instalação. Próteses sobre implantes dependem também do tempo de cicatrização.',
+      },
+    ],
+    relacionados: ['implantodontia', 'endodontia', 'estetica-dental'],
+  },
+  {
+    slug: 'cirurgia-bucomaxilofacial',
+    nome: 'Cirurgia bucomaxilofacial',
+    nomeNaFrase: 'cirurgia',
+    icone: 'cirurgia',
+    resumo:
+      'Extração de sisos, pequenas cirurgias, enxertos e biópsias, com planejamento por imagem e acompanhamento no pós-operatório.',
+    descricaoSeo:
+      'Extração de dentes do siso, enxertos ósseos, biópsias e cirurgias orais em Brasília, com planejamento por imagem e pós-operatório acompanhado.',
+    introducao: [
+      'O especialista em cirurgia e traumatologia bucomaxilofacial trata alterações da boca, dos maxilares e da face. No consultório, realiza procedimentos como a extração de dentes do siso, cirurgias para receber próteses, enxertos ósseos e biópsias.',
+      'Procedimentos de maior porte, como a cirurgia ortognática, são planejados em conjunto com a ortodontia e realizados em ambiente hospitalar.',
+    ],
+    indicacoes: [
+      'Dentes do siso inclusos, mal posicionados ou que causam dor',
+      'Dentes que não podem ser recuperados',
+      'Falta de osso para instalar implantes',
+      'Lesões na boca que precisam de diagnóstico',
+      'Desproporções entre maxila e mandíbula, em conjunto com a ortodontia',
+    ],
+    etapas: [
+      {
+        titulo: 'Avaliação e exames',
+        texto:
+          'Exame clínico e de imagem, como radiografia panorâmica ou tomografia, e exames de saúde geral quando necessário.',
+      },
+      {
+        titulo: 'Planejamento',
+        texto: 'Explicação do procedimento, dos cuidados prévios e do pós-operatório esperado.',
+      },
+      {
+        titulo: 'Cirurgia',
+        texto: 'Realização do procedimento com anestesia local, seguindo protocolos de biossegurança.',
+      },
+      {
+        titulo: 'Pós-operatório',
+        texto:
+          'Orientações por escrito, medicação prescrita e retorno para remoção de pontos e acompanhamento.',
+      },
+    ],
+    faq: [
+      {
+        pergunta: 'Todo siso precisa ser extraído?',
+        resposta:
+          'Não. Sisos bem posicionados, que nasceram por completo e podem ser higienizados, podem permanecer. A extração é indicada quando há dor, inflamação, cárie, falta de espaço ou risco para os dentes vizinhos.',
+      },
+      {
+        pergunta: 'Como é a recuperação da extração do siso?',
+        resposta:
+          'Inchaço e desconforto são comuns nos primeiros dias e diminuem aos poucos. Repouso, compressas frias, alimentação leve e a medicação prescrita ajudam na recuperação.',
+      },
+      {
+        pergunta: 'Preciso de exames antes da cirurgia?',
+        resposta:
+          'Exames de imagem são sempre necessários. Conforme sua saúde e o porte do procedimento, também podem ser pedidos exames de sangue ou uma avaliação do seu médico.',
+      },
+    ],
+    relacionados: ['implantodontia', 'ortodontia', 'dtm-e-dor-orofacial'],
+  },
+  {
+    slug: 'dtm-e-dor-orofacial',
+    nome: 'DTM e dor orofacial',
+    nomeNaFrase: 'DTM e dor orofacial',
+    icone: 'articulacao',
+    resumo:
+      'Diagnóstico e controle de dores na articulação da mandíbula e nos músculos da face, do bruxismo e de dores de cabeça associadas.',
+    descricaoSeo:
+      'Tratamento de DTM, dor na articulação da mandíbula, estalos e bruxismo em Brasília, com placa oclusal e abordagem individualizada.',
+    introducao: [
+      'A disfunção temporomandibular, ou DTM, reúne problemas da articulação que liga a mandíbula ao crânio e dos músculos da mastigação. Pode causar dor na face, estalos, dificuldade para abrir a boca e dor de cabeça.',
+      'O tratamento é individualizado e, em geral, conservador: orientações, placa oclusal, controle do bruxismo, fisioterapia e cuidado com fatores como estresse e sono — muitas vezes em conjunto com outros profissionais de saúde.',
+    ],
+    indicacoes: [
+      'Dor na face, na frente do ouvido ou ao mastigar',
+      'Estalos ou travamento da mandíbula',
+      'Dificuldade para abrir ou fechar a boca',
+      'Ranger ou apertar os dentes',
+      'Dores de cabeça frequentes associadas à tensão na face',
+    ],
+    etapas: [
+      {
+        titulo: 'Avaliação',
+        texto:
+          'Entrevista detalhada sobre a dor, exame dos músculos e da articulação e, quando necessário, exames de imagem.',
+      },
+      {
+        titulo: 'Diagnóstico',
+        texto: 'Identificação das causas e dos fatores que mantêm a dor.',
+      },
+      {
+        titulo: 'Tratamento',
+        texto:
+          'Orientações de autocuidado, placa oclusal, exercícios e outras terapias indicadas para o caso.',
+      },
+      {
+        titulo: 'Acompanhamento',
+        texto: 'Reavaliações para ajustar o tratamento conforme a evolução.',
+      },
+    ],
+    faq: [
+      {
+        pergunta: 'Estalo na mandíbula é preocupante?',
+        resposta:
+          'Estalos sem dor e sem limitação de movimento são comuns e nem sempre exigem tratamento. Se vierem com dor, travamento ou dificuldade para abrir a boca, procure avaliação.',
+      },
+      {
+        pergunta: 'A placa para bruxismo resolve?',
+        resposta:
+          'A placa oclusal protege os dentes do desgaste e pode aliviar sintomas, mas não elimina a causa do bruxismo. Ela costuma fazer parte de um tratamento mais amplo.',
+      },
+      {
+        pergunta: 'DTM tem relação com estresse?',
+        resposta:
+          'Sim. Estresse, ansiedade e sono de má qualidade podem aumentar o apertamento dos dentes e a tensão muscular, contribuindo para a dor. Por isso, o tratamento muitas vezes envolve outros profissionais.',
+      },
+    ],
+    relacionados: ['ortodontia', 'protese-dentaria', 'cirurgia-bucomaxilofacial'],
+  },
+];
+
+/** Busca um tratamento pelo slug. */
+export function encontrarTratamento(slug) {
+  return tratamentos.find((t) => t.slug === slug);
+}

@@ -1,0 +1,42 @@
+{
+  "name": "site-clinica-odontologica",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site institucional de clínica odontológica em Brasília — React + Vite, pré-renderizado para GitHub Pages.",
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "npm run build:client && npm run build:server && npm run prerender",
+    "build:client": "vite build",
+    "build:server": "vite build --ssr src/entry-server.jsx --outDir dist-ssr",
+    "prerender": "node scripts/prerender.mjs",
+    "preview": "vite preview",
+    "check": "node scripts/check-site.mjs",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "verify": "npm run lint && npm test && npm run build && npm run check"
+  },
+  "dependencies": {
+    "@fontsource-variable/jost": "5.3.0",
+    "@fontsource-variable/source-sans-3": "5.3.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@vitejs/plugin-react": "6.1.2",
+    "eslint": "10.12.0",
+    "eslint-plugin-jsx-a11y-x": "0.2.0",
+    "eslint-plugin-react-hooks": "7.1.1",
+    "globals": "17.13.0",
+    "linkedom": "0.18.13",
+    "prettier": "3.9.9",
+    "vite": "8.3.3",
+    "vitest": "5.0.3"
+  }
+}

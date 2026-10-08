@@ -1,0 +1,194 @@
+@layer componentes {
+  .cabecalho {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background: var(--branco);
+    border-bottom: 1px solid transparent;
+    transition:
+      border-color var(--transicao),
+      box-shadow var(--transicao);
+  }
+
+  .cabecalho[data-rolado] {
+    border-bottom-color: var(--linha);
+    box-shadow: 0 10px 30px -24px rgb(43 20 10 / 0.6);
+  }
+
+  .cabecalho__interno {
+    display: flex;
+    align-items: center;
+    gap: var(--esp-5);
+    min-height: var(--altura-cabecalho);
+  }
+
+  .cabecalho__marca {
+    flex: none;
+    text-decoration: none;
+    border-radius: var(--raio-1);
+  }
+
+  .cabecalho__nav {
+    margin-left: auto;
+  }
+
+  .cabecalho__lista {
+    display: flex;
+    gap: clamp(0.75rem, 1.8vw, 2rem);
+  }
+
+  .cabecalho__link {
+    position: relative;
+    display: inline-block;
+    padding: 0.5rem 0.1rem;
+    font-family: var(--fonte-titulo);
+    font-size: var(--fs-1);
+    color: var(--tinta);
+    text-decoration: none;
+  }
+
+  .cabecalho__link::after {
+    content: '';
+    position: absolute;
+    inset-inline: 0;
+    bottom: 0.15rem;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--bronze-500);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transicao);
+  }
+
+  .cabecalho__link:hover {
+    color: var(--tinta);
+  }
+
+  .cabecalho__link:hover::after,
+  .cabecalho__link[data-atual]::after {
+    transform: scaleX(1);
+  }
+
+  .cabecalho__acoes {
+    display: flex;
+    align-items: center;
+    gap: var(--esp-3);
+  }
+
+  .cabecalho__menu-botao {
+    display: none;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 1.5px solid var(--linha);
+    border-radius: 50%;
+    background: var(--branco);
+    color: var(--tinta);
+  }
+
+  @media (max-width: 72rem) {
+    .cabecalho__nav {
+      display: none;
+    }
+
+    .cabecalho__acoes {
+      margin-left: auto;
+    }
+
+    .cabecalho__menu-botao {
+      display: inline-grid;
+    }
+  }
+
+  @media (max-width: 34rem) {
+    .cabecalho__cta {
+      display: none;
+    }
+
+    .cabecalho .marca__complemento {
+      display: none;
+    }
+  }
+
+  /* ── Menu do celular (diálogo lateral) ─────────────────────────────── */
+  .menu-movel {
+    width: min(24rem, 100%);
+    max-width: none;
+    height: 100dvh;
+    max-height: none;
+    margin: 0 0 0 auto;
+    padding: 0;
+    border: 0;
+    background: var(--branco);
+    color: var(--texto);
+  }
+
+  .menu-movel::backdrop {
+    background: rgb(28 12 5 / 0.55);
+  }
+
+  .menu-movel[open] {
+    animation: menu-entrar 260ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
+  @keyframes menu-entrar {
+    from {
+      transform: translateX(100%);
+    }
+  }
+
+  .menu-movel__painel {
+    display: flex;
+    flex-direction: column;
+    gap: var(--esp-6);
+    min-height: 100%;
+    padding: var(--esp-4) var(--esp-5) var(--esp-6);
+  }
+
+  .menu-movel__topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: calc(var(--altura-cabecalho) - var(--esp-4));
+  }
+
+  .menu-movel__fechar {
+    display: inline-grid;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 1.5px solid var(--linha);
+    border-radius: 50%;
+    background: var(--branco);
+  }
+
+  .menu-movel__lista a {
+    display: block;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--linha);
+    font-family: var(--fonte-titulo);
+    font-size: var(--fs-4);
+    color: var(--tinta);
+    text-decoration: none;
+  }
+
+  .menu-movel__lista a[data-atual],
+  .menu-movel__lista a[aria-current] {
+    color: var(--bronze-600);
+  }
+
+  .menu-movel__contato {
+    display: grid;
+    gap: var(--esp-4);
+    margin-top: auto;
+  }
+
+  .menu-movel__telefone {
+    display: inline-flex;
+    gap: var(--esp-2);
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    text-decoration: none;
+  }
+}

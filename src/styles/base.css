@@ -1,0 +1,242 @@
+/* ════════════════════════════════════════════════════════════════════════
+   BASE — reset leve, tipografia e utilitários
+   ════════════════════════════════════════════════════════════════════════ */
+
+@layer reset, base, layout, componentes, paginas, utilitarios;
+
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    scroll-padding-top: calc(var(--altura-cabecalho) + 1rem);
+  }
+
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  figure,
+  blockquote,
+  dl,
+  dd,
+  ul,
+  ol {
+    margin: 0;
+  }
+
+  ul[class],
+  ol[class] {
+    list-style: none;
+    padding: 0;
+  }
+
+  img,
+  svg,
+  video,
+  iframe {
+    display: block;
+    max-width: 100%;
+  }
+
+  img {
+    height: auto;
+  }
+
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+    color: inherit;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    min-width: 0;
+  }
+
+  legend {
+    padding: 0;
+  }
+
+  [hidden] {
+    display: none !important;
+  }
+}
+
+@layer base {
+  html {
+    background: var(--branco);
+  }
+
+  body {
+    font-family: var(--fonte-texto);
+    font-size: var(--fs-2);
+    line-height: var(--entrelinha);
+    color: var(--texto);
+    background: var(--branco);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--fonte-titulo);
+    color: var(--tinta);
+    line-height: var(--entrelinha-titulo);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+
+  h1 {
+    font-size: var(--fs-7);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+  }
+
+  h2 {
+    font-size: var(--fs-6);
+    font-weight: 450;
+    letter-spacing: -0.015em;
+  }
+
+  h3 {
+    font-size: var(--fs-4);
+  }
+
+  h4 {
+    font-size: var(--fs-3);
+  }
+
+  p,
+  li,
+  dd {
+    text-wrap: pretty;
+  }
+
+  strong {
+    font-weight: 650;
+    color: var(--tinta);
+  }
+
+  a {
+    color: var(--cacau-700);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+  }
+
+  a:hover {
+    color: var(--cacau-600);
+    text-decoration-thickness: 2px;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--azulejo-600);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  .tema-escuro :focus-visible {
+    outline-color: var(--bronze-200);
+  }
+
+  ::selection {
+    background: var(--bronze-200);
+    color: var(--jacaranda-900);
+  }
+
+  main:focus {
+    outline: none;
+  }
+
+  address {
+    font-style: normal;
+  }
+
+  /* Alto contraste: links sempre sublinhados e fundos escuros em preto puro */
+  html[data-contraste='alto'] a {
+    text-decoration: underline;
+  }
+
+  html[data-contraste='alto'] .tema-escuro {
+    background: #000 !important;
+    color: #fff;
+  }
+}
+
+/* ── Movimento reduzido (sistema ou preferência do site) ─────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html[data-movimento='reduzido'] *,
+html[data-movimento='reduzido'] *::before,
+html[data-movimento='reduzido'] *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html:not([data-movimento='reduzido']) {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilitarios {
+  .visualmente-oculto {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0 0 0 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+  }
+
+  .pular-link {
+    position: fixed;
+    top: var(--esp-3);
+    left: var(--esp-3);
+    z-index: 100;
+    padding: var(--esp-3) var(--esp-5);
+    border-radius: var(--raio-pilula);
+    background: var(--jacaranda-900);
+    color: var(--texto-claro);
+    font-weight: 600;
+    transform: translateY(-200%);
+  }
+
+  .pular-link:focus {
+    transform: none;
+    color: var(--texto-claro);
+  }
+}

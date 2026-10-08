@@ -1,0 +1,144 @@
+@layer componentes {
+  .convenios-home {
+    padding-bottom: calc(var(--secao) * 0.6);
+  }
+
+  .painel-convenios {
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(2rem, 1.5rem + 3vw, 4.5rem);
+    padding: clamp(2rem, 1.25rem + 4vw, 4.5rem);
+    overflow: hidden;
+    border-radius: clamp(1.5rem, 1rem + 2vw, 2.75rem);
+    background: linear-gradient(135deg, #6c3f25 0%, var(--cacau-700) 55%, var(--jacaranda-900) 100%);
+    color: var(--texto-claro-suave);
+  }
+
+  @media (max-width: 54rem) {
+    .painel-convenios {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .painel-convenios__curva {
+    position: absolute;
+    inset: auto -5% -12% auto;
+    z-index: -1;
+    width: min(46rem, 90%);
+    color: rgb(226 198 166 / 0.22);
+    stroke-width: 1.5;
+  }
+
+  .painel-convenios__cabeca {
+    display: grid;
+    gap: var(--esp-5);
+    align-content: start;
+    justify-items: start;
+  }
+
+  .painel-convenios h2 {
+    font-size: clamp(2.5rem, 1.8rem + 3vw, 4rem);
+    font-weight: 500;
+    color: var(--texto-claro);
+  }
+
+  .painel-convenios__cabeca p {
+    max-width: 30rem;
+  }
+
+  .painel-convenios__busca {
+    padding: clamp(1.25rem, 1rem + 1.5vw, 2rem);
+    border-radius: var(--raio-3);
+    background: var(--branco);
+    color: var(--texto);
+    box-shadow: 0 30px 50px -30px rgb(0 0 0 / 0.6);
+  }
+
+  /* Busca de convênios */
+  .busca-convenios {
+    display: grid;
+    gap: var(--esp-3);
+  }
+
+  .busca-convenios__rotulo {
+    font-family: var(--fonte-titulo);
+    font-size: var(--fs-3);
+    font-weight: 500;
+    color: var(--tinta);
+  }
+
+  .busca-convenios__campo {
+    position: relative;
+  }
+
+  .busca-convenios__campo .icone {
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    translate: 0 -50%;
+    color: var(--bronze-500);
+    pointer-events: none;
+  }
+
+  .busca-convenios__campo input {
+    width: 100%;
+    min-height: 3.25rem;
+    padding: 0.7rem 1rem 0.7rem 3rem;
+    border: 1.5px solid var(--linha);
+    border-radius: var(--raio-pilula);
+    background: var(--marmore-50);
+    color: var(--tinta);
+  }
+
+  .busca-convenios__campo input::placeholder {
+    color: #8a7d74;
+  }
+
+  .busca-convenios__campo input:focus-visible {
+    outline: 3px solid var(--azulejo-600);
+    outline-offset: 2px;
+    border-color: var(--azulejo-600);
+    background: var(--branco);
+  }
+
+  .busca-convenios__status {
+    font-size: var(--fs-0);
+    color: var(--texto-suave);
+  }
+
+  .busca-convenios__lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--esp-2);
+    padding: 0;
+    list-style: none;
+  }
+
+  .busca-convenios__lista li {
+    padding: 0.35rem 0.85rem;
+    border: 1px solid var(--linha);
+    border-radius: var(--raio-pilula);
+    background: var(--marmore-50);
+    font-size: var(--fs-1);
+    color: var(--tinta);
+  }
+
+  .busca-convenios mark {
+    padding: 0 0.1em;
+    border-radius: 3px;
+    background: var(--bronze-200);
+    color: var(--jacaranda-900);
+  }
+
+  .busca-convenios__vazio {
+    display: grid;
+    gap: var(--esp-3);
+    justify-items: start;
+    padding: var(--esp-4);
+    border-radius: var(--raio-2);
+    background: var(--bronze-100);
+    color: var(--tinta);
+  }
+}

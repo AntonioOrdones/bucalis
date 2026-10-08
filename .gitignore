@@ -1,0 +1,17 @@
+# Dependências e builds
+node_modules/
+dist/
+dist-ssr/
+
+# Sistema e editores
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# Logs e variáveis locais
+*.log
+.env
+.env.*
+!.env.example

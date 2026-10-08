@@ -1,0 +1,137 @@
+@layer componentes {
+  .acessibilidade {
+    position: relative;
+  }
+
+  .acessibilidade__botao {
+    display: inline-grid;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 1.5px solid var(--linha);
+    border-radius: 50%;
+    background: var(--branco);
+    color: var(--azulejo-600);
+    transition:
+      background-color var(--transicao),
+      color var(--transicao);
+  }
+
+  .acessibilidade__botao:hover,
+  .acessibilidade__botao[aria-expanded='true'] {
+    background: var(--azulejo-600);
+    border-color: var(--azulejo-600);
+    color: #fff;
+  }
+
+  .acessibilidade__painel {
+    position: absolute;
+    top: calc(100% + 0.6rem);
+    right: 0;
+    z-index: 60;
+    display: grid;
+    gap: var(--esp-3);
+    width: min(21rem, calc(100vw - 2rem));
+    padding: var(--esp-5);
+    border: 1px solid var(--linha);
+    border-radius: var(--raio-2);
+    background: var(--branco);
+    box-shadow: var(--sombra-2);
+    font-size: var(--fs-1);
+  }
+
+  @media (max-width: 34rem) {
+    .acessibilidade__painel {
+      position: fixed;
+      top: calc(var(--altura-cabecalho) + 0.25rem);
+      right: 1rem;
+      left: 1rem;
+      width: auto;
+    }
+  }
+
+  .acessibilidade__titulo {
+    font-family: var(--fonte-titulo);
+    font-size: var(--fs-3);
+    color: var(--tinta);
+  }
+
+  .acessibilidade__grupo legend {
+    margin-bottom: var(--esp-2);
+    font-weight: 600;
+    color: var(--tinta);
+  }
+
+  .acessibilidade__segmentos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 1.5px solid var(--linha);
+    border-radius: var(--raio-pilula);
+    overflow: hidden;
+  }
+
+  .acessibilidade__segmentos button {
+    min-height: 2.6rem;
+    border: 0;
+    background: none;
+    color: var(--tinta);
+  }
+
+  .acessibilidade__segmentos button + button {
+    border-left: 1.5px solid var(--linha);
+  }
+
+  .acessibilidade__segmentos button[aria-pressed='true'] {
+    background: var(--azulejo-600);
+    color: #fff;
+    font-weight: 600;
+  }
+
+  .acessibilidade__alternar {
+    display: grid;
+    grid-template-columns: 1.5rem 1fr auto;
+    gap: var(--esp-3);
+    align-items: center;
+    min-height: 3rem;
+    padding: 0.55rem 0.85rem;
+    border: 1.5px solid var(--linha);
+    border-radius: var(--raio-2);
+    background: var(--branco);
+    color: var(--tinta);
+    text-align: left;
+  }
+
+  .acessibilidade__alternar .icone {
+    color: var(--azulejo-600);
+  }
+
+  .acessibilidade__alternar[aria-pressed='true'] {
+    border-color: var(--azulejo-600);
+    background: var(--azulejo-100);
+  }
+
+  .acessibilidade__estado {
+    font-size: var(--fs-0);
+    color: var(--texto-suave);
+  }
+
+  .acessibilidade__alternar[aria-pressed='true'] .acessibilidade__estado {
+    color: var(--azulejo-700);
+    font-weight: 600;
+  }
+
+  .acessibilidade__aviso {
+    min-height: 1.4em;
+    font-size: var(--fs-0);
+    color: var(--texto-suave);
+  }
+
+  .acessibilidade__aviso:empty {
+    display: none;
+  }
+
+  .acessibilidade__link {
+    font-size: var(--fs-0);
+    font-weight: 600;
+  }
+}
