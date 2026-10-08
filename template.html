@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="format-detection" content="telephone=no" />
+    <!--app-head-->
+    <script>
+      /* Aplica as preferências de acessibilidade antes da primeira pintura (evita "piscar"). */
+      (function () {
+        try {
+          var p = JSON.parse(localStorage.getItem('clinica:acessibilidade') || '{}');
+          var d = document.documentElement;
+          if (p.fonte) d.setAttribute('data-fonte', String(p.fonte));
+          if (p.contraste) d.setAttribute('data-contraste', 'alto');
+          if (p.movimento) d.setAttribute('data-movimento', 'reduzido');
+        } catch (e) {
+          /* armazenamento indisponível: segue com o padrão */
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"><!--app-html--></div>
+    <script type="module" src="/src/entry-client.jsx"></script>
+  </body>
+</html>

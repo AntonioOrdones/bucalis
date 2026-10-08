@@ -1,0 +1,29 @@
+{
+  "name": "Alvorada Odontologia",
+  "short_name": "Alvorada",
+  "description": "Clínica odontológica na Asa Sul, em Brasília, com todas as especialidades em um só lugar: implantes, ortodontia, estética, odontopediatria e mais.",
+  "lang": "pt-BR",
+  "start_url": "/site2/",
+  "scope": "/site2/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2b140a",
+  "icons": [
+    {
+      "src": "/site2/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/site2/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/site2/icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
