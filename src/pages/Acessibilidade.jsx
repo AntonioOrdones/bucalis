@@ -65,8 +65,10 @@ export default function Acessibilidade() {
             <p>
               Conte para nós pelo{' '}
               <a href={linkWhatsApp('Olá! Encontrei uma dificuldade de acessibilidade no site.')}>WhatsApp</a>
-              , pelo telefone {contato.telefoneExibicao} ou pelo e-mail{' '}
-              <a href={`mailto:${contato.email}`}>{contato.email}</a>. Responderemos o quanto antes.
+              ou pelo telefone {contato.telefoneExibicao}.
+              {contato.email && (
+                <> Também estamos disponíveis no e-mail <a href={`mailto:${contato.email}`}>{contato.email}</a>.</>
+              )} Nossa equipe responderá durante o horário de atendimento.
             </p>
             <p>Última revisão: {legal.atualizacaoPoliticas}.</p>
           </article>
