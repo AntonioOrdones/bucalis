@@ -80,7 +80,7 @@ jobs:
             git checkout --orphan gh-pages
           fi
 
-          git rm -r --ignore-unmatch .
+          git rm -r -f --ignore-unmatch .
           git clean -fdx
           cp -a "$RUNNER_TEMP/site2-publicado/." ./
           git add -A
