@@ -126,3 +126,26 @@
 @media(max-width:64rem){.especialidades__grade,.perguntas-secao,.localizacao__grade,.sobre__grade,.contato__grade,.tratamento__grade{grid-template-columns:1fr}.especialidades__cabeca{position:static}.especialidade{position:static}.rodape__grade{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:42rem){.etapas__lista{grid-template-columns:1fr}.etapas__arcos{display:none}.topo-pagina__grade,.nao-encontrada{grid-template-columns:1fr}.topo-pagina__visual{display:none}.rodape__grade{grid-template-columns:1fr}.aviso-privacidade{display:grid}.equipe__cabeca,.instagram__cabeca{display:grid}.fachada__conteudo{padding-block:4rem}}
 }
+
+
+/* Identidade visual Bucalis: logotipo manuscrito e tons de areia/marrom. */
+@layer paginas {
+  .marca--bucalis {display:inline-flex;flex-direction:column;align-items:center;gap:.08rem;color:inherit;text-align:center;min-width:0}
+  .marca--bucalis .marca__simbolo {display:block;width:clamp(8rem,15vw,12rem);height:auto;aspect-ratio:1550/540;overflow:visible}
+  .marca--bucalis .marca__complemento {display:block;font-family:Arial,sans-serif;font-weight:500;font-size:clamp(.51rem,.73vw,.78rem);line-height:1.2;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+  .cabecalho .marca--bucalis {color:#241a16}
+  .cabecalho .marca--bucalis .marca__simbolo {width:clamp(7.3rem,12vw,9.5rem)}
+  .fachada__letreiro .marca--bucalis {color:#e5d5c3}
+  .fachada__letreiro .marca--bucalis .marca__simbolo {width:clamp(14rem,31vw,27rem)}
+  .fachada__letreiro .marca--bucalis .marca__complemento {font-size:clamp(.7rem,1.2vw,1.12rem);letter-spacing:.14em}
+  .rodape .marca--bucalis {color:#e7d9c6}
+  .rodape .marca--bucalis .marca__simbolo {width:12rem}
+  .fachada__parede {background:linear-gradient(90deg,rgba(32,16,11,.95),rgba(48,23,16,.56)),repeating-linear-gradient(90deg,#301710 0 1rem,#42261a 1rem 1.07rem,#301710 1.07rem 2.1rem)}
+  .fachada__luzes {background:radial-gradient(ellipse at 65% 35%,rgba(217,199,176,.18),transparent 58%)}
+  .chamada {background:linear-gradient(125deg,#301710,#4a2a1e)}
+  @media(max-width:34rem) {
+    .cabecalho .marca--bucalis .marca__complemento{display:block;font-size:.48rem}
+    .cabecalho .marca--bucalis .marca__simbolo{width:7.2rem}
+    .fachada__letreiro .marca--bucalis .marca__simbolo{width:min(70vw,18rem)}
+  }
+}
