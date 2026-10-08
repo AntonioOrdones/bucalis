@@ -58,8 +58,14 @@ export default function Privacidade() {
               </li>
               <li>
                 <strong>Somente com a sua permissão:</strong> estatísticas de visita (Google Analytics) e
-                conteúdos de terceiros — avaliações do Google e feed do Instagram (via Elfsight), mapa do
+                conteúdos opcionais — avaliações do Google e feed do Instagram (via Elfsight), mapa do
                 Google Maps e vídeos do YouTube.
+              </li>
+              <li>
+                <strong>Fontes do site:</strong> para apresentar a tipografia Bucalis, o navegador solicita
+                fontes ao Google Fonts (Google Fonts e Google Fonts Static). Essa conexão ocorre ao abrir a
+                página e pode transmitir dados técnicos, como endereço IP, ao fornecedor. Ela não depende
+                do consentimento para conteúdos opcionais.
               </li>
               <li>
                 <strong>Dados de saúde</strong> são tratados somente no atendimento clínico (prontuário), com
@@ -94,8 +100,10 @@ export default function Privacidade() {
 
             <h2>6. Cookies e tecnologias semelhantes</h2>
             <p>
-              Por padrão, o site usa apenas o armazenamento local essencial. Estatísticas e conteúdos de
-              terceiros só são carregados depois da sua escolha, que pode ser alterada a qualquer momento.
+              Por padrão, o site usa apenas o armazenamento local essencial. Estatísticas e integrações
+              opcionais (como mapas e avaliações) só são carregadas depois da sua escolha, que pode ser
+              alterada a qualquer momento. O carregamento das fontes pelo Google Fonts é um recurso
+              visual separado dessas preferências, descrito na seção 2.
             </p>
             <p>
               <Botao variante="contorno" tamanho="pequeno" onClick={abrirPreferencias} icone="cookie">

@@ -105,6 +105,31 @@ for (const [arquivo, doc] of paginas) {
     if (!img.hasAttribute('alt')) erro(nome, `imagem sem alt: ${img.getAttribute('src')}`);
   }
 
+  // Padrões aplicáveis do GOVBR-DS: link de salto e rótulos associados.
+  if (!doc.querySelector('a.pular-link[href="#conteudo"]') || !doc.querySelector('main#conteudo'))
+    erro(nome, 'falta link de salto válido para o conteúdo principal');
+
+  for (const controle of doc.querySelectorAll('input, select, textarea')) {
+    if (controle.getAttribute('type') === 'hidden') continue;
+    const idControle = controle.getAttribute('id');
+    const rotuloVisivel = Boolean(
+      controle.closest('label') ||
+      (idControle && [...doc.querySelectorAll('label[for]')].some(
+        (label) => label.getAttribute('for') === idControle,
+      )),
+    );
+    const rotuloAcessivel = controle.hasAttribute('aria-label') ||
+      controle.hasAttribute('aria-labelledby');
+    if (!rotuloVisivel && !rotuloAcessivel)
+      erro(nome, `controle sem rotulo: ${controle.getAttribute('name') ?? controle.tagName}`);
+
+    const descricoes = (controle.getAttribute('aria-describedby') || '').split(/\s+/).filter(Boolean);
+    for (const descricaoId of descricoes) {
+      if (!doc.getElementById(descricaoId))
+        erro(nome, `aria-describedby faz referencia a ID inexistente: ${descricaoId}`);
+    }
+  }
+
   // Botões e links com nome acessível
   for (const el of doc.querySelectorAll('a[href], button')) {
     const nomeAcessivel =

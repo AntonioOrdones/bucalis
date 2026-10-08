@@ -38,7 +38,7 @@ export default function BuscaConvenios({ limite }) {
   const exibidos = !termo && limite ? encontrados.slice(0, limite) : encontrados;
 
   return (
-    <div className="busca-convenios">
+    <div className="busca-convenios" role="search" aria-label="Filtrar convênios atendidos">
       <label className="busca-convenios__rotulo" htmlFor={campoId}>
         Procure o seu convênio
       </label>

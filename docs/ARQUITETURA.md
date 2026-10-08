@@ -24,6 +24,8 @@ O GitHub Pages de projeto publica em `/nome-do-repositorio/`. Toda URL interna p
 ## CSS
 
 - Arquivos por componente em `src/styles/componentes/`, importados por `src/styles/main.css`.
+- `src/styles/identidade-bucalis.css` garante a identidade visual institucional; `src/styles/padroes-interacao.css` implementa estados, densidade, controles, grid, mensagens, foco e movimento inspirados nas diretrizes do GOVBR-DS sem incorporar a marca governamental.
+- Matriz de auditoria: `docs/DESIGN-SYSTEM-GOVBR-AUDITORIA.md`.
 - Camadas (`@layer reset, base, layout, componentes, paginas, utilitarios`) evitam disputas de especificidade.
 - Classes em português no padrão bloco__elemento--modificador.
 - Preferências de acessibilidade viram atributos no `<html>` (`data-fonte`, `data-contraste`, `data-movimento`), aplicados por um script curto no `<head>` antes da primeira pintura.
