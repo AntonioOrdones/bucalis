@@ -6,8 +6,8 @@
   "start_url": "/bucalis/",
   "scope": "/bucalis/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#301710",
+  "background_color": "#ede3d7",
+  "theme_color": "#2e1711",
   "icons": [
     {
       "src": "/bucalis/icons/icon-bucalis-192.png",
