@@ -1,0 +1,128 @@
+@layer paginas{
+.fachada{position:relative;isolation:isolate;overflow:hidden;min-height:clamp(38rem,78vh,54rem);display:grid;align-items:center}
+.fachada__parede{position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(26,10,5,.9),rgba(26,10,5,.34)),repeating-linear-gradient(90deg,#372118 0 1rem,#573622 1rem 1.07rem,#2f1b13 1.07rem 2.1rem)}
+.fachada__foto{width:100%;height:100%;object-fit:cover;opacity:.5}
+.fachada__luzes{position:absolute;inset:0;background:radial-gradient(ellipse at 70% 35%,rgba(230,182,108,.18),transparent 53%)}
+.fachada__conteudo{position:relative;padding-block:6rem;display:grid;justify-items:start;gap:var(--esp-5)}
+.fachada__letreiro{margin-bottom:1rem;color:var(--bronze-200)}
+.fachada__titulo{max-width:17ch}
+.fachada__apoio{max-width:38rem;font-size:var(--fs-3)}
+.fachada__colunata{position:absolute;bottom:-1px;right:0;max-width:100%;height:5rem;color:rgba(240,202,154,.5)}
+.marca{display:inline-flex;align-items:center;gap:.55rem;color:inherit}
+.marca__simbolo{width:2.65rem;height:2.65rem}
+.marca__texto{display:grid;line-height:1.15;font-family:var(--fonte-titulo)}
+.marca__nome{font-size:1.4rem;font-weight:550}
+.marca__complemento{font-size:.72rem;letter-spacing:.13em;text-transform:uppercase}
+.marca--vertical{flex-direction:column;text-align:center}
+.marca--vertical .marca__simbolo{width:4rem;height:4rem}
+.sobre__grade{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);align-items:center;gap:clamp(2rem,5vw,6rem)}
+.sobre__texto{display:grid;gap:1.4rem}
+.sobre__visual{display:grid;justify-items:center;gap:1rem}
+.sobre__arco{height:clamp(18rem,38vw,35rem);width:min(100%,30rem)}
+.sobre__legenda{font-size:var(--fs-0);color:var(--texto-suave);text-align:center}
+.azulejos{display:block;width:100%;height:100%}
+.numeros{display:flex;flex-wrap:wrap;gap:2rem;margin-block:1rem}
+.numeros__item{display:flex;flex-direction:column-reverse;gap:.2rem}
+.numeros__item dt{font-size:var(--fs-0)}
+.numeros__item dd{font-size:clamp(2rem,4vw,3.5rem);font-family:var(--fonte-titulo);color:var(--bronze-600);line-height:1}
+.especialidades__grade{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1fr);gap:clamp(2rem,6vw,7rem)}
+.especialidades__cabeca{display:grid;align-content:start;justify-items:start;gap:1.4rem;position:sticky;top:calc(var(--altura-cabecalho) + 2rem);height:max-content}
+.especialidades__pilha{display:grid;gap:1.2rem}
+.especialidade{display:grid;gap:.9rem;position:sticky;top:calc(var(--altura-cabecalho) + 1.25rem + var(--indice) * .5rem);padding:clamp(1.5rem,3vw,2.5rem);border:1px solid #ded2c4;border-radius:var(--raio-3);background:var(--marmore-100);color:var(--texto);box-shadow:var(--sombra-1)}
+.especialidade__icone{color:var(--bronze-600)}
+.especialidade__titulo a{color:var(--tinta);text-decoration:none}
+.especialidade__mais{display:flex;gap:.5rem;align-items:center;font-weight:600;color:var(--cacau-700)}
+.etapas__arcos{width:100%;height:3rem;color:var(--bronze-300)}
+.etapas__lista{display:grid;grid-template-columns:repeat(var(--colunas),minmax(0,1fr));gap:1.5rem}
+.etapa{display:grid;align-content:start;gap:.6rem}
+.etapa__marcador{display:grid;place-items:center;width:3rem;height:3rem;border-radius:50%;background:var(--bronze-100);color:var(--bronze-600);font-weight:700}
+.etapa__titulo{font-size:var(--fs-3)}
+.primeira-consulta__acoes{margin-top:2rem}
+.equipe__grade{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13rem),1fr));gap:2.5rem 1.5rem}
+.equipe__cabeca,.instagram__cabeca{display:flex;justify-content:space-between;align-items:end;gap:2rem;margin-bottom:2rem}
+.profissional{display:grid;gap:.85rem}
+.profissional__retrato{aspect-ratio:3/4;background:var(--bronze-100)}
+.profissional__texto{display:grid;gap:.2rem}
+.profissional__nome{font-size:var(--fs-3)}
+.profissional__area,.profissional__cro,.profissional__selo{font-size:var(--fs-0)}
+.retrato-vazio{position:relative;width:100%;height:100%}
+.retrato-vazio__iniciais{position:absolute;inset:0;display:grid;place-items:center;font:500 3rem var(--fonte-titulo);color:var(--jacaranda-900)}
+.equipe__registro{margin-top:2rem}
+.perguntas-secao{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:3rem}
+.perguntas{display:grid;gap:.65rem}
+.pergunta{border-bottom:1px solid var(--linha);padding:1rem 0}
+.pergunta__resumo{display:flex;align-items:center;justify-content:space-between;gap:1rem;cursor:pointer;font-weight:600;color:var(--tinta);list-style:none}
+.pergunta__icone{flex:none}
+.pergunta__resposta{padding-block:1rem;display:grid;gap:.75rem}
+.localizacao__grade{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:3rem}
+.localizacao__texto{display:grid;align-content:center;justify-items:start;gap:1.5rem}
+.localizacao__endereco{display:flex;align-items:start;gap:.75rem}
+.mapa{min-height:20rem;background:var(--marmore-100);border-radius:var(--raio-3);overflow:hidden}
+.mapa iframe{width:100%;height:24rem;border:0}
+.plano-piloto{width:100%;max-height:24rem}
+.plano-piloto__eixo{fill:none;stroke:var(--azulejo-600);stroke-width:3}
+.plano-piloto__lago{fill:#c0d9e4}
+.plano-piloto__pino{fill:var(--bronze-600)}
+.plano-piloto__rotulo{fill:var(--tinta);font-size:12px}
+.horarios{display:grid;gap:.7rem}
+.horarios__lista{display:grid;gap:.5rem}
+.horarios__lista>div{display:flex;justify-content:space-between;gap:1rem}
+.horarios__situacao{font-size:var(--fs-0);font-weight:600}
+.horarios__ponto{display:inline-block;width:.55rem;height:.55rem;border-radius:50%;background:var(--whatsapp);margin-right:.5rem}
+.chamada{padding-block:clamp(4rem,7vw,7rem);text-align:center;background:linear-gradient(125deg,var(--jacaranda-900),#5b3523)}
+.chamada__conteudo{display:grid;justify-items:center;gap:1.4rem}
+.chamada__titulo{max-width:18ch}
+.chamada__texto{max-width:37rem}
+.rodape{padding-block:0 2rem}
+.rodape__friso{height:2.5rem;overflow:hidden}
+.rodape__grade{display:grid;grid-template-columns:1.4fr repeat(3,minmax(0,1fr));gap:2rem;padding-block:4rem}
+.rodape__marca,.rodape__coluna{display:grid;align-content:start;justify-items:start;gap:1rem}
+.rodape__titulo{font-size:var(--fs-2)}
+.rodape a{color:var(--texto-claro-suave)}
+.rodape__legal{display:grid;gap:1rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.2);font-size:var(--fs-0)}
+.rodape__links-legais{display:flex;flex-wrap:wrap;gap:1rem}
+.topo-pagina{padding-block:clamp(3rem,6vw,6rem);background:var(--marmore-100)}
+.topo-pagina__grade{display:grid;grid-template-columns:1.4fr .6fr;align-items:center;gap:3rem}
+.topo-pagina__texto{display:grid;justify-items:start;gap:1.3rem}
+.topo-pagina__apoio{font-size:var(--fs-3)}
+.topo-pagina__visual{width:min(100%,18rem);justify-self:end}
+.trilha ol{display:flex;gap:.5rem;flex-wrap:wrap}
+.trilha li+li:before{content:'›';padding-right:.5rem}
+.trilha a{color:var(--texto-suave)}
+.arco-topo{aspect-ratio:3/4;position:relative}
+.arco-topo__icone{position:absolute;inset:0;display:grid;place-items:center;color:var(--jacaranda-900)}
+.cartoes-tratamento{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,18rem),1fr));gap:1.3rem}
+.cartao-tratamento{height:100%;padding:2rem;border:1px solid var(--linha);border-radius:var(--raio-3);display:grid;align-content:start;gap:1rem;background:var(--branco)}
+.cartao-tratamento__icone,.cartao-tratamento__mais{color:var(--bronze-600)}
+.cartao-tratamento__titulo a{color:var(--tinta);text-decoration:none}
+.tratamento__grade{display:grid;grid-template-columns:minmax(0,1fr) minmax(16rem,.45fr);gap:3rem}
+.tratamento__conteudo,.tratamento__bloco,.lateral{display:grid;align-content:start;gap:1.5rem}
+.lateral__cartao{padding:1.5rem;background:var(--marmore-100);border-radius:var(--raio-2);display:grid;gap:1rem}
+.lateral__cartao--escuro{background:var(--jacaranda-900)}
+.lista-marcada{padding-left:1.25rem}
+.aviso-clinico{padding:1rem;border-left:3px solid var(--bronze-500);background:var(--marmore-100)}
+.formulario{display:grid;gap:1rem;padding:clamp(1.25rem,3vw,2.5rem);background:var(--marmore-100);border-radius:var(--raio-3)}
+.campo{display:grid;gap:.4rem}
+.campo input,.campo select,.campo textarea{width:100%;padding:.8rem;border:1px solid var(--linha);border-radius:.65rem;background:#fff}
+.campo__erro,.formulario__status{color:#962b27}
+.formulario__fichas{display:flex;flex-wrap:wrap;gap:.6rem}
+.contato__grade{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.contato__canais,.canais,.contato__horarios{display:grid;gap:1.25rem}
+.canal{display:flex;gap:1rem}
+.aviso-privacidade{position:fixed;bottom:0;left:0;right:0;z-index:80;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding:1.3rem clamp(1rem,4vw,3rem);background:#fff;box-shadow:0 -5px 32px rgba(0,0,0,.2)}
+.aviso-privacidade p{max-width:50rem}
+.aviso-privacidade__acoes,.preferencias__acoes{display:flex;gap:.6rem;flex-wrap:wrap}
+.preferencias{max-width:min(95vw,38rem);border:1px solid var(--linha);border-radius:var(--raio-3);padding:0;box-shadow:var(--sombra-2)}
+.preferencias::backdrop{background:rgba(0,0,0,.5)}
+.preferencias__conteudo{padding:2rem;display:grid;gap:1.2rem}
+.preferencias__item{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding-block:1rem;border-top:1px solid var(--linha)}
+.chave input{width:1.4rem;height:1.4rem}
+.bloqueio{display:grid;place-items:center;gap:1rem;padding:1.5rem;text-align:center}
+.bloqueio--mapa{min-height:20rem}
+.instagram__painel{display:block;position:relative;overflow:hidden;border-radius:var(--raio-3);height:12rem}
+.instagram__selo{position:absolute;left:1rem;bottom:1rem;padding:.5rem 1rem;border-radius:var(--raio-pilula);background:#fff;color:var(--tinta)}
+.nao-encontrada{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.nao-encontrada__texto{display:grid;gap:1rem}
+@media(max-width:64rem){.especialidades__grade,.perguntas-secao,.localizacao__grade,.sobre__grade,.contato__grade,.tratamento__grade{grid-template-columns:1fr}.especialidades__cabeca{position:static}.especialidade{position:static}.rodape__grade{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:42rem){.etapas__lista{grid-template-columns:1fr}.etapas__arcos{display:none}.topo-pagina__grade,.nao-encontrada{grid-template-columns:1fr}.topo-pagina__visual{display:none}.rodape__grade{grid-template-columns:1fr}.aviso-privacidade{display:grid}.equipe__cabeca,.instagram__cabeca{display:grid}.fachada__conteudo{padding-block:4rem}}
+}
