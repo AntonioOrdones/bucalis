@@ -167,6 +167,9 @@ for (const obrigatorio of [
   'site.webmanifest',
   'favicon.svg',
   'og-image.jpg',
+  'og-bucalis-2026.png',
+  'favicon-bucalis.svg',
+  'icons/favicon-bucalis-32.png',
 ]) {
   if (!(await existe(join(dist, obrigatorio)))) erros.push(`arquivo ausente: ${obrigatorio}`);
 }

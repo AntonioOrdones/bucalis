@@ -33,12 +33,12 @@ export function manifestoWeb() {
     scope: BASE,
     display: 'standalone',
     background_color: '#ffffff',
-    theme_color: '#2b140a',
+    theme_color: '#301710',
     icons: [
-      { src: `${BASE}icons/icon-192.png`, sizes: '192x192', type: 'image/png' },
-      { src: `${BASE}icons/icon-512.png`, sizes: '512x512', type: 'image/png' },
+      { src: `${BASE}icons/icon-bucalis-192.png`, sizes: '192x192', type: 'image/png' },
+      { src: `${BASE}icons/icon-bucalis-512.png`, sizes: '512x512', type: 'image/png' },
       {
-        src: `${BASE}icons/icon-maskable-512.png`,
+        src: `${BASE}icons/icon-bucalis-maskable-512.png`,
         sizes: '512x512',
         type: 'image/png',
         purpose: 'maskable',
