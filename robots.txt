@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://antonioordones.github.io/site2/sitemap.xml
+Sitemap: https://antonioordones.github.io/bucalis/sitemap.xml
