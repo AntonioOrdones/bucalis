@@ -1,0 +1,69 @@
+name: Publicar no GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Verificar e compilar site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obter arquivos
+        uses: actions/checkout@v4
+
+      - name: Preparar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Ler endereco do GitHub Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Verificar qualidade do codigo
+        run: npm run lint && npm test
+
+      - name: Gerar site estatico
+        run: npm run build
+        env:
+          BASE_PATH: ${{ steps.pages.outputs.base_path }}
+          SITE_URL: ${{ steps.pages.outputs.base_url }}
+
+      - name: Verificar paginas geradas
+        run: npm run check
+
+      - name: Empacotar site para publicacao
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+  deploy:
+    name: Publicar site
+    if: github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publicar no Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
