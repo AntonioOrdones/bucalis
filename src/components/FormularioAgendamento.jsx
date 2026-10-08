@@ -25,7 +25,12 @@ export default function FormularioAgendamento() {
   const campoNome = useRef(null);
   const id = useId();
 
-  const alterar = (campo) => (evento) => setValores((v) => ({ ...v, [campo]: evento.target.value }));
+  const alterar = (campo) => (evento) => {
+    setValores((v) => ({ ...v, [campo]: evento.target.value }));
+    if (campo === 'nome') setErro('');
+    // Mensagem preparada anteriormente nao deve ser exibida apos editar dados.
+    setLinkGerado('');
+  };
 
   const enviar = (evento) => {
     evento.preventDefault();
@@ -65,10 +70,13 @@ export default function FormularioAgendamento() {
           value={valores.nome}
           onChange={alterar('nome')}
           aria-invalid={erro ? 'true' : undefined}
-          aria-describedby={erro ? `${id}-erro` : undefined}
+          aria-describedby={erro ? `${id}-nome-ajuda ${id}-erro` : `${id}-nome-ajuda`}
         />
+        <p id={`${id}-nome-ajuda`} className="campo__dica">
+          Como devemos chamar você no atendimento?
+        </p>
         {erro && (
-          <p id={`${id}-erro`} className="campo__erro">
+          <p id={`${id}-erro`} className="campo__erro" role="alert">
             {erro}
           </p>
         )}

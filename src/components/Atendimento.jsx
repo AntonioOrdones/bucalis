@@ -81,7 +81,14 @@ export default function Atendimento() {
             </h2>
             <p className="atendimento__sub">Respondemos pelo WhatsApp no horário de funcionamento.</p>
           </div>
-          <button type="button" className="atendimento__fechar" onClick={() => setAberto(false)}>
+          <button
+            type="button"
+            className="atendimento__fechar"
+            onClick={() => {
+              setAberto(false);
+              botao.current?.focus();
+            }}
+          >
             <Icone nome="fechar" />
             <span className="visualmente-oculto">Fechar atendimento</span>
           </button>

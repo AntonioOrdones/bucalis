@@ -1,0 +1,280 @@
+/* Padrões de interação Bucalis
+ * Referências: Padrão Digital de Governo (GOVBR-DS 3.x), WAI-ARIA e WCAG.
+ * Identidade visual exclusiva Bucalis; não utiliza a marca GOV.BR nem classes br-*.
+ */
+
+/* Tokens de semântica, estado, dimensão, espaço, elevação e movimento. */
+:root {
+  --superficie-base: var(--branco);
+  --superficie-suave: var(--bucalis-areia);
+  --superficie-inversa: var(--bucalis-cacau);
+  --estado-foco: var(--bucalis-vinho);
+  --estado-erro: var(--bucalis-vinho);
+  --estado-selecionado: var(--bucalis-vinho);
+  --estado-desabilitado: var(--bucalis-cinza);
+  --controle-altura-minima: 2.75rem;
+  --grid-largura-maxima: 76rem;
+  --grid-gutter: clamp(1rem, 3vw, 2rem);
+  --densidade-compacta: var(--esp-2);
+  --densidade-regular: var(--esp-4);
+  --densidade-ampla: var(--esp-6);
+  --elevacao-painel: 0 14px 38px -24px rgb(46 23 17 / .40);
+  --elevacao-modal: 0 28px 75px -22px rgb(46 23 17 / .50);
+  --movimento-curto: 160ms ease;
+  --movimento-padrao: 220ms ease;
+}
+
+@layer base {
+  /* Links e controles sempre exibem foco com teclado. */
+  :where(a, button, input, select, textarea, summary):focus-visible {
+    outline: 3px solid var(--estado-foco);
+    outline-offset: 3px;
+  }
+  .tema-escuro :where(a, button, input, select, textarea, summary):focus-visible {
+    outline-color: var(--bucalis-areia);
+  }
+  .tema-escuro strong { color: var(--bucalis-areia); }
+  :where(button, input, select, textarea) { accent-color: var(--bucalis-vinho); }
+  :where(button, input, select, textarea):disabled {
+    cursor: not-allowed;
+    opacity: .68;
+  }
+  /* O foco de um campo com erro nao deve depender exclusivamente de cor. */
+  :where(input, select, textarea)[aria-invalid='true'] {
+    border-width: 2px;
+    border-style: solid;
+    border-color: var(--estado-erro);
+  }
+  :where(input, select, textarea)[aria-invalid='true']:focus-visible {
+    outline: 3px solid var(--estado-foco);
+    outline-offset: 2px;
+  }
+}
+
+@layer layout {
+  .conteiner {
+    width: min(calc(100% - 2 * var(--grid-gutter)), var(--grid-largura-maxima));
+    margin-inline: auto;
+  }
+  :is(.duas-colunas, .contato__grade, .localizacao__grade, .topo-pagina__grade, .sobre__grade,
+      .perguntas-secao, .tratamento__grade, .especialidades__grade, .rodape__grade) > * {
+    min-width: 0;
+  }
+  .grupo-botoes > * { max-width: 100%; }
+  .secao__cabeca { min-width: 0; }
+}
+
+@layer componentes {
+  .botao, .botao--pequeno {
+    min-height: var(--controle-altura-minima);
+    transition-duration: var(--movimento-padrao);
+  }
+  .botao:focus-visible {
+    outline: 3px solid var(--estado-foco);
+    outline-offset: 3px;
+  }
+  .tema-escuro .botao:focus-visible { outline-color: var(--bucalis-areia); }
+  .botao:disabled, .botao[aria-disabled='true'] {
+    opacity: .66;
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+
+  .cabecalho__menu-botao, .menu-movel__fechar,
+  .acessibilidade__botao, .atendimento__fechar,
+  .preferencias__fechar {
+    min-width: var(--controle-altura-minima);
+    min-height: var(--controle-altura-minima);
+  }
+  .cabecalho__link {
+    min-height: var(--controle-altura-minima);
+    display: inline-flex;
+    align-items: center;
+  }
+  .menu-movel__lista a { min-height: var(--controle-altura-minima); }
+  .menu-movel { overflow-y: auto; overscroll-behavior: contain; }
+  .menu-movel__painel { padding-bottom: max(var(--esp-6), env(safe-area-inset-bottom)); }
+
+  .busca-convenios__campo input {
+    min-height: var(--controle-altura-minima);
+  }
+  .busca-convenios__status { min-height: 1.5em; }
+  .busca-convenios__vazio {
+    border: 1px solid var(--bucalis-taupe);
+  }
+  .busca-convenios__vazio p { max-width: 55ch; }
+
+  .acessibilidade__painel {
+    max-height: min(80dvh, 37rem);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    box-shadow: var(--elevacao-painel);
+  }
+  .acessibilidade__segmentos button {
+    min-height: var(--controle-altura-minima);
+  }
+  .acessibilidade__alternar {
+    min-height: var(--controle-altura-minima);
+  }
+}
+
+@layer paginas {
+  /* Controles de formulário com tamanho, orientação e retorno consistentes. */
+  .formulario {
+    gap: var(--densidade-regular);
+    border: 1px solid var(--bucalis-taupe);
+  }
+  .formulario__intro, .formulario__nota, .campo__dica {
+    max-width: 65ch;
+  }
+  .campo { gap: var(--esp-2); min-width: 0; }
+  .campo label, .campo legend {
+    font-size: var(--fs-1);
+    font-weight: 600;
+    line-height: 1.5;
+    color: var(--bucalis-cacau);
+  }
+  .campo__obrigatorio { font-weight: 400; }
+  .campo input, .campo select, .campo textarea {
+    min-height: var(--controle-altura-minima);
+    min-width: 0;
+    padding: .75rem 1rem;
+    border: 1.5px solid var(--bucalis-oliva);
+    background: var(--branco);
+    color: var(--bucalis-cacau);
+    line-height: 1.55;
+  }
+  .campo textarea { resize: vertical; }
+  .campo :is(input, select, textarea):focus-visible {
+    border-color: var(--estado-foco);
+    outline: 3px solid var(--estado-foco);
+    outline-offset: 2px;
+  }
+  .campo input[aria-invalid='true'] {
+    border: 2px solid var(--estado-erro);
+    background: var(--branco);
+  }
+  .campo__erro {
+    color: var(--estado-erro);
+    border-left: 3px solid currentColor;
+    padding-left: var(--esp-3);
+    font-size: var(--fs-0);
+    font-weight: 600;
+  }
+  .campo__dica { font-size: var(--fs-0); color: var(--bucalis-malva); }
+  .ficha { display: inline-block; max-width: 100%; }
+  .ficha span {
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--controle-altura-minima);
+    max-width: 100%;
+  }
+  .ficha input:focus-visible + span {
+    outline: 3px solid var(--estado-foco);
+    outline-offset: 2px;
+  }
+  .formulario__status {
+    padding: var(--esp-4);
+    border: 1px solid var(--bucalis-vinho);
+    border-radius: var(--raio-2);
+    background: var(--branco);
+  }
+
+  /* Accordion: estados abertos e foco, sem substituir semântica HTML nativa. */
+  .pergunta { padding: 0; }
+  .pergunta__resumo {
+    min-height: var(--controle-altura-minima);
+    padding: var(--esp-4) var(--esp-2);
+    border-radius: var(--raio-1);
+    gap: var(--esp-4);
+  }
+  .pergunta__resumo::-webkit-details-marker { display: none; }
+  .pergunta__resumo:hover { background: var(--bucalis-areia); }
+  .pergunta[open] .pergunta__resumo { color: var(--bucalis-vinho); }
+  .pergunta__icone {
+    transition: transform var(--movimento-curto);
+  }
+  .pergunta[open] .pergunta__icone { transform: rotate(45deg); }
+  .pergunta__resposta {
+    padding: 0 var(--esp-2) var(--esp-5);
+    max-width: 75ch;
+  }
+
+  /* Etapas verticais efetivamente numa unica coluna, independentemente do total. */
+  .etapas--vertical .etapas__lista { grid-template-columns: minmax(0, 1fr); }
+  .etapas--vertical .etapas__arcos { display: none; }
+
+  /* Navegação e retorno em 404 e páginas internas. */
+  .trilha ol { row-gap: var(--esp-2); }
+  .trilha [aria-current='page'] {
+    font-weight: 600;
+    color: var(--bucalis-vinho);
+    overflow-wrap: anywhere;
+  }
+  .nao-encontrada__texto { max-width: 55ch; }
+
+  /* Cookiebar: nao impedir o uso do conteudo em viewport pequena. */
+  .aviso-privacidade {
+    max-height: min(70dvh, 35rem);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding-bottom: max(var(--esp-5), env(safe-area-inset-bottom));
+    box-shadow: 0 -7px 30px rgb(46 23 17 / .17);
+  }
+  .aviso-privacidade__acoes {
+    flex-shrink: 0;
+    gap: var(--esp-2);
+  }
+  .preferencias {
+    width: min(100% - 2rem, 39rem);
+    max-height: min(88dvh, 48rem);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    box-shadow: var(--elevacao-modal);
+  }
+  .preferencias__cabecalho {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--esp-4);
+  }
+  .preferencias__cabecalho h2 {
+    font-family: var(--fonte-titulo);
+    font-size: var(--fs-4);
+    line-height: 1.35;
+  }
+  .preferencias__fechar {
+    flex-shrink: 0;
+    border: 1.5px solid var(--bucalis-taupe);
+    border-radius: var(--raio-pilula);
+    background: var(--branco);
+    color: var(--bucalis-vinho);
+    font-size: 1.5rem;
+    line-height: 1;
+  }
+  .preferencias__item { flex-wrap: wrap; }
+  .preferencias__item > div { flex: 1 1 17rem; min-width: 0; }
+  .chave { min-width: var(--controle-altura-minima); min-height: var(--controle-altura-minima); display: inline-grid; place-items: center; cursor: pointer; }
+  .chave input { accent-color: var(--bucalis-vinho); }
+  .preferencias__acoes .botao { flex: 1 1 auto; }
+}
+
+@media (max-width: 42rem) {
+  @layer paginas {
+    .aviso-privacidade { display: grid; gap: var(--esp-4); }
+    .aviso-privacidade__acoes { display: grid; grid-template-columns: minmax(0, 1fr); }
+    .aviso-privacidade__acoes > * { width: 100%; }
+    .preferencias__conteudo { padding: var(--esp-5); }
+    .preferencias__acoes { display: grid; }
+    .preferencias__item { align-items: flex-start; }
+    .grupo-botoes > .botao { width: 100%; }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --movimento-curto: 0ms; --movimento-padrao: 0ms; }
+}
+html[data-movimento='reduzido'] {
+  --movimento-curto: 0ms;
+  --movimento-padrao: 0ms;
+}

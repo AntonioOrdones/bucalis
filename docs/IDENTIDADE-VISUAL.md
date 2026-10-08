@@ -1,5 +1,7 @@
 # Manual de identidade visual aplicado ao site Bucalis
 
+**Documentos complementares:** [Auditoria do Design System GOV.BR](./DESIGN-SYSTEM-GOVBR-AUDITORIA.md) — padrões de interação, estados, navegação, grids, responsividade, cookies, mensagens e matriz de componentes realmente utilizados. O arquivo `src/styles/padroes-interacao.css` reúne os tokens e comportamentos adicionais.
+
 Base: PDF **Boston angel.pdf** enviado pela clínica (4 páginas). Esta referência substitui os temas anteriores inspirados em Alvorada, madeira bronze e azul.
 
 ## Paleta oficial

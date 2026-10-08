@@ -94,7 +94,7 @@ export default function Consentimento() {
         </section>
       )}
 
-      <dialog ref={dialogo} className="preferencias" aria-labelledby={tituloId}>
+      <dialog ref={dialogo} className="preferencias" aria-labelledby={tituloId} aria-describedby={`${tituloId}-descricao`}>
         <form
           method="dialog"
           className="preferencias__conteudo"
@@ -103,10 +103,20 @@ export default function Consentimento() {
             decidir(escolhas);
           }}
         >
-          <h2 id={tituloId} className="preferencias__titulo">
-            Preferências de privacidade
-          </h2>
-          <p>
+          <div className="preferencias__cabecalho">
+            <h2 id={tituloId} className="preferencias__titulo">
+              Preferências de privacidade
+            </h2>
+            <button
+              type="button"
+              className="preferencias__fechar"
+              aria-label="Fechar preferências sem salvar"
+              onClick={() => dialogo.current?.close()}
+            >
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <p id={`${tituloId}-descricao`}>
             Escolha o que pode ser carregado neste navegador. Você pode mudar de ideia a qualquer momento pelo
             link “Preferências de privacidade”, no rodapé.
           </p>
@@ -149,6 +159,12 @@ export default function Consentimento() {
           <div className="preferencias__acoes">
             <Botao type="submit" variante="contorno">
               Salvar escolhas
+            </Botao>
+            <Botao
+              variante="contorno"
+              onClick={() => decidir({ terceiros: false, medicao: false })}
+            >
+              Rejeitar opcionais
             </Botao>
             <Botao onClick={() => decidir({ terceiros: true, medicao: true })}>Aceitar tudo</Botao>
           </div>
