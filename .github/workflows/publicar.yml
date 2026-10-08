@@ -40,8 +40,8 @@ jobs:
       - name: Compilar e pre-renderizar
         run: npm run build
         env:
-          BASE_PATH: /site2/
-          SITE_URL: https://antonioordones.github.io/site2
+          BASE_PATH: /bucalis/
+          SITE_URL: https://antonioordones.github.io/bucalis
 
       - name: Verificar o resultado
         run: |
