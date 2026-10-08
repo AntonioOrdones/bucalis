@@ -1,36 +1,33 @@
 import { clinica } from '../data/clinica.js';
 
 /**
- * Símbolo da marca: um dente desenhado como um trecho da colunata do
- * Palácio da Alvorada — a laje no alto, as colunas que afinam até tocar o
- * chão e o arco entre elas. (Marca provisória: troque à vontade.)
+ * Marca Bucalis redesenhada a partir da assinatura presente
+ * na identidade visual enviada pela clinica.
  */
-export const CAMINHO_SIMBOLO =
-  'M4 9H44C40 12 38.6 18 37.6 26 36.8 32 36 37 35 42 32.5 31 29.5 22 24 22 18.5 22 15.5 31 13 42 12 37 11.2 32 10.4 26 9.4 18 8 12 4 9Z';
+const assinatura = [
+  'M235 25 212 20 173 21 117 32 90 42 70 54 62 64 61 76 69 82 85 83 183 63 203 63 217 68 231 90 239 114 240 136 237 150 225 173 200 199 166 215 154 226 150 236 152 252 163 272 172 279 185 278 204 267 241 273 303 296 317 308 316 318 304 338 282 359 169 435 118 478 76 494 34 492 24 495 20 502 22 511 33 522 50 531 95 537 152 526 192 509 267 463 299 449 324 431 350 404 370 377 389 339 394 317 393 296 386 280 372 262 346 242 324 231 293 220 258 213 254 209 271 195 283 173 288 149 287 99 282 77 270 53 259 40Z',
+  'M143 103 129 106 118 122 98 194 89 214 69 242 63 292 47 314 44 327 44 377 47 393 52 404 72 424 78 450 90 459 97 459 106 453 114 432 108 360 122 331 131 291 129 240 149 138 149 110Z',
+  'M362 437 372 445 387 446 424 428 447 409 458 442 465 452 491 461 521 462 543 457 562 448 573 440 597 413 608 415 634 431 653 438 663 433 664 424 654 402 636 379 615 361 597 353 576 358 511 400 496 404 495 394 510 356 516 326 515 319 508 310 495 308 479 311 461 321 448 334 438 356 421 381 396 406 367 424 362 431Z',
+  'M785 310 769 309 752 316 703 352 683 378 678 394 681 420 691 438 717 458 748 466 782 465 807 458 819 449 824 435 832 425 863 397 863 392 857 385 835 378 818 380 800 395 774 403 749 402 734 394 734 386 750 366 793 336 796 322Z',
+  'M1125 423 1101 393 1066 331 1051 315 1035 310 1020 310 1009 314 996 330 962 319 936 319 917 325 905 336 894 353 882 382 879 400 882 427 890 440 910 454 934 460 964 458 989 448 1015 427 1024 408 1031 402 1055 423 1073 429 1095 444 1105 444 1117 438 1123 432Z M979 360 984 368 984 378 970 399 947 410 937 410 930 404 926 395 926 379 930 369 938 361 954 355 967 355Z',
+  'M1241 145 1233 149 1221 163 1177 255 1147 294 1135 321 1132 343 1141 347 1151 342 1191 301 1180 356 1178 399 1186 438 1204 460 1220 466 1241 466 1268 460 1295 445 1313 420 1320 418 1350 454 1362 465 1368 466 1378 447 1390 438 1390 434 1356 395 1344 376 1355 349 1356 333 1350 320 1334 307 1317 303 1300 309 1293 319 1284 348 1266 378 1249 391 1243 389 1238 382 1236 361 1242 320 1274 186 1273 169 1267 154 1256 145Z',
+  'M1325 199 1319 206 1321 230 1315 255 1324 266 1340 275 1360 276 1363 274 1361 241 1367 212 1350 199Z',
+  'M1457 262 1446 264 1437 271 1427 305 1419 317 1399 333 1396 342 1405 354 1426 357 1442 348 1460 326 1465 328 1472 368 1472 400 1467 431 1463 435 1456 435 1429 417 1423 418 1422 425 1427 440 1441 460 1454 465 1475 466 1502 460 1527 442 1540 411 1541 382 1535 359 1503 289 1477 267Z',
+];
 
-export function Simbolo({ className = '', preenchido = false, ...props }) {
+export function Simbolo({ className = '', ...props }) {
   return (
-    <svg className={className} viewBox="0 0 48 48" aria-hidden="true" focusable="false" {...props}>
-      <path
-        d={CAMINHO_SIMBOLO}
-        fill={preenchido ? 'currentColor' : 'none'}
-        stroke={preenchido ? 'none' : 'currentColor'}
-        strokeWidth="2"
-        strokeLinejoin="round"
-      />
+    <svg className={className} viewBox="0 0 1550 540" role="img" aria-label="Assinatura Bucalis" {...props}>
+      <g fill="currentColor">{assinatura.map((d, i) => <path key={i} d={d} />)}</g>
     </svg>
   );
 }
 
-/** Marca completa: símbolo + nome. `vertical` é usada na fachada da home. */
 export default function Marca({ variante = 'horizontal', className = '' }) {
   return (
-    <span className={`marca marca--${variante} ${className}`.trim()}>
+    <span className={`marca marca--${variante} marca--bucalis ${className}`.trim()}>
       <Simbolo className="marca__simbolo" />
-      <span className="marca__texto">
-        <span className="marca__nome">{clinica.nomeCurto}</span>
-        <span className="marca__complemento">{clinica.complementoMarca}</span>
-      </span>
+      <span className="marca__complemento">{clinica.complementoMarca}</span>
     </span>
   );
 }
